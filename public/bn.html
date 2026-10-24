@@ -735,8 +735,11 @@
         e.preventDefault();
         clearErrors();
 
+        function normDigits(str) {
+          return String(str || '').replace(/[০-৯]/g, function (d) { return '০১২৩৪৫৬৭৮৯'.indexOf(d); });
+        }
         var nameVal = form.name.value.trim();
-        var phoneVal = form.phone.value.replace(/[^\d+]/g, '');
+        var phoneVal = normDigits(form.phone.value).replace(/[^\d+]/g, '');
         var dateVal = form.date.value.trim();
         var hasError = false;
 

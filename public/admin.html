@@ -110,6 +110,14 @@ input,select,textarea{border:1px solid var(--line);background:var(--card);paddin
       var right=el('span');right.appendChild(el('span','pill '+r.status,r.status));top.appendChild(right);c.appendChild(top);
       var meta=el('div','meta');
       var a=el('a',null,r.phone);a.href='tel:'+r.phone;meta.appendChild(a);
+      var cleanDigits = r.phone.replace(/[^\d]/g, '');
+      if (cleanDigits) {
+        var wa=el('a',null,'WhatsApp');
+        wa.href='https://wa.me/'+(cleanDigits.length===11&&cleanDigits.startsWith('01')?'88'+cleanDigits:cleanDigits);
+        wa.target='_blank';wa.rel='noopener noreferrer';wa.style.color='#128c7e';wa.style.fontWeight='600';
+        meta.appendChild(wa);
+      }
+      if(r.lang)meta.appendChild(el('span',null,r.lang==='bn'?'[বাংলা]':'[EN]'));
       if(r.area)meta.appendChild(el('span',null,r.area));
       if(r.preferred_date)meta.appendChild(el('span',null,'Preferred: '+r.preferred_date));
       meta.appendChild(el('span','ref',r.ref+' · '+fmt(r.created_at)));

@@ -4,10 +4,16 @@
   "private": true,
   "description": "Website and appointment backend for Dr. Tahsin Ahmed Nafi",
   "scripts": {
-    "start": "node --env-file=.env server.js",
-    "dev": "node --env-file=.env server.js"
+    "start": "node --env-file-if-exists=.env server.js",
+    "dev": "node --env-file-if-exists=.env server.js",
+    "test": "node --test test/*.test.js",
+    "test:libsql": "node test/run-libsql.js"
   },
   "engines": {
-    "node": ">=22.5"
+    "node": "22.x"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.18.0",
+    "@vercel/blob": "2.4.0"
   }
 }

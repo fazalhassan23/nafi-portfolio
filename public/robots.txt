@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /studio
 Disallow: /admin
 Disallow: /api/admin/
 Allow: /

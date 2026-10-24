@@ -56,6 +56,7 @@ setInterval(() => { // keep memory bounded
 }, 600e3).unref();
 
 const clean = (v, max) => String(v ?? '').replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '').trim().slice(0, max);
+const normalizeDigits = (str) => String(str ?? '').replace(/[০-৯]/g, (d) => '০১২৩৪৫৬৭৮৯'.indexOf(d));
 
 function sign(payload) {
   return crypto.createHmac('sha256', SESSION_SECRET).update(payload).digest('base64url');
@@ -132,25 +133,43 @@ function cookieHeader(value, maxAgeSec) {
 
 // ---------- handlers ----------
 function createAppointment(req, res, b) {
-  if (!rateLimit('appt:' + clientIp(req), 5, 3600e3)) return send(res, 429, { error: 'Too many requests. Please call the chamber.' });
+  const lang = b.lang === 'bn' ? 'bn' : 'en';
+  if (!rateLimit('appt:' + clientIp(req), 15, 3600e3)) {
+    return send(res, 429, {
+      error: lang === 'bn'
+        ? 'অনুরোধের সংখ্যা বেশি হয়েছে। অনুগ্রহ করে সরাসরি চেম্বার হটলাইনে যোগাযোগ করুন।'
+        : 'Too many requests. Please call the chamber directly.'
+    });
+  }
   if (b.website) return send(res, 200, { ok: true, ref: 'NAF-OK' }); // honeypot: pretend success
 
   const name = clean(b.name, 80);
-  const phone = clean(b.phone, 20).replace(/[^\d+]/g, '');
-  const area = clean(b.area, 40);
+  const rawPhone = normalizeDigits(clean(b.phone, 35));
+  const phone = rawPhone.replace(/[^\d+]/g, '').slice(0, 20);
+  const area = clean(b.area, 80);
   const message = clean(b.message, 1000);
-  const lang = b.lang === 'bn' ? 'bn' : 'en';
   const date = clean(b.date, 10);
 
   const errors = {};
-  if (name.length < 2) errors.name = 'Please enter your name.';
-  if (!/^\+?\d{7,15}$/.test(phone)) errors.phone = 'Please enter a valid phone number.';
+  if (name.length < 2) {
+    errors.name = lang === 'bn' ? 'অনুগ্রহ করে রোগীর পূর্ণ নাম লিখুন।' : 'Please enter your name.';
+  }
+  if (!/^\+?\d{7,15}$/.test(phone)) {
+    errors.phone = lang === 'bn' ? 'অনুগ্রহ করে সঠিক মোবাইল নম্বর প্রদান করুন।' : 'Please enter a valid phone number.';
+  }
   if (date) {
     const d = new Date(date + 'T00:00:00Z');
     const today = new Date(); today.setUTCHours(0, 0, 0, 0);
-    if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || isNaN(d) || d < new Date(today - 864e5)) errors.date = 'Please choose a valid future date.';
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || isNaN(d) || d < new Date(today - 864e5)) {
+      errors.date = lang === 'bn' ? 'অনুগ্রহ করে ভবিষ্যৎ বা আজকের একটি তারিখ নির্বাচন করুন।' : 'Please choose a valid future date.';
+    }
   }
-  if (Object.keys(errors).length) return send(res, 400, { error: 'Please check the form.', fields: errors });
+  if (Object.keys(errors).length) {
+    return send(res, 400, {
+      error: lang === 'bn' ? 'অনুগ্রহ করে ফর্মের তথ্য যাচাই করুন।' : 'Please check the form.',
+      fields: errors
+    });
+  }
 
   const ref = newRef();
   db.prepare('INSERT INTO appointments (ref,name,phone,area,preferred_date,message,lang) VALUES (?,?,?,?,?,?,?)')
@@ -162,7 +181,11 @@ function queryRows(q) {
   const where = [], args = [];
   if (STATUSES.includes(q.get('status'))) { where.push('status = ?'); args.push(q.get('status')); }
   const s = clean(q.get('q'), 60).replace(/[%_]/g, '');
-  if (s) { where.push('(name LIKE ? OR phone LIKE ? OR ref LIKE ? OR message LIKE ?)'); const like = `%${s}%`; args.push(like, like, like, like); }
+  if (s) {
+    where.push('(name LIKE ? OR phone LIKE ? OR ref LIKE ? OR message LIKE ? OR area LIKE ?)');
+    const like = `%${s}%`;
+    args.push(like, like, like, like, like);
+  }
   const sql = `SELECT * FROM appointments ${where.length ? 'WHERE ' + where.join(' AND ') : ''} ORDER BY id DESC LIMIT 1000`;
   return db.prepare(sql).all(...args).map((r) => ({ ...r }));
 }

@@ -6,186 +6,518 @@
 <title>ডা. তাহসিন আহমেদ নাফি — নাক, কান ও গলা বিশেষজ্ঞ ও সার্জন</title>
 <meta name="description" content="ডা. তাহসিন আহমেদ নাফি, MBBS (DMC), BCS (Health), DLO (BMU) — নাক, কান ও গলা রোগ বিশেষজ্ঞ ও সার্জন। অ্যাপয়েন্টমেন্ট নিন।">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body class="bn">
 
-<header>
-  <div class="wrap nav">
-    <a class="logo" href="#top">ডা. নাফি<small>নাক, কান ও গলা বিশেষজ্ঞ ও সার্জন</small></a>
-    <nav id="site-nav"><ul>
-      <li><a href="#about">পরিচিতি</a></li>
-      <li><a href="#conditions">রোগসমূহ</a></li>
-      <li><a href="#treatments">চিকিৎসা</a></li>
-      <li><a href="#why">কেন আমরা</a></li>
-      <li><a href="#faq">জিজ্ঞাসা</a></li>
-      <li><a href="#contact">যোগাযোগ</a></li>
-    </ul></nav>
-    <a class="lang" href="index.html">EN</a>
-    <a class="btn primary" href="#contact">অ্যাপয়েন্টমেন্ট</a>
-    <button class="menu-btn" id="menu-btn" type="button" aria-label="মেনু" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+<!-- ===== HEADER ===== -->
+<header id="main-header">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top" aria-label="ডা. নাফি — হোম">
+      <span class="logo-name">ডা. <span>নাফি</span></span>
+      <span class="logo-sub">নাক, কান ও গলা বিশেষজ্ঞ ও সার্জন</span>
+    </a>
+    <nav id="site-nav" aria-label="প্রধান নেভিগেশন">
+      <ul>
+        <li><a href="#about">পরিচিতি</a></li>
+        <li><a href="#conditions">রোগসমূহ</a></li>
+        <li><a href="#treatments">চিকিৎসা</a></li>
+        <li><a href="#why">কেন আমরা</a></li>
+        <li><a href="#faq">জিজ্ঞাসা</a></li>
+        <li><a href="#contact">যোগাযোগ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a class="lang-btn" href="index.html" aria-label="Switch to English">EN</a>
+      <a class="btn btn-primary btn-sm" href="#contact" id="nav-book-btn">অ্যাপয়েন্টমেন্ট</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="মেনু খুলুন" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
+<!-- ===== HERO ===== -->
 <main id="top">
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">বিশেষজ্ঞ · নাক, কান ও গলা</p>
-      <h1>আমি ডা. তাহসিন আহমেদ <em>নাফি</em></h1>
-      <p class="lead">নাক, কান, গলা এবং মাথা ও ঘাড়ের রোগের চিকিৎসক ও সার্জন। সঠিক রোগনির্ণয়, সহজ ভাষায় ব্যাখ্যা এবং আপনার জন্য উপযুক্ত চিকিৎসা।</p>
-      <div class="creds">
-        <span>MBBS (DMC)</span><span>BCS (Health)</span><span>DLO (BMU)</span>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg-cross">✚</div>
+  <div class="hero-bg-cross">✚</div>
+  <div class="hero-wrap">
+    <div class="hero-content reveal">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        বিশেষজ্ঞ · নাক, কান ও গলা · বাংলাদেশ
       </div>
-      <div class="cta">
-        <a class="btn primary" href="tel:+8800000000000">এখনই কল করুন</a>
-        <a class="btn ghost" href="#conditions">যেসব রোগের চিকিৎসা করি</a>
+      <h1 class="hero-title" id="hero-title">
+        আমি<br>
+        ডা. তাহসিন আহমেদ<br>
+        <span class="name-highlight">নাফি</span>
+      </h1>
+      <p class="hero-desc">
+        নাক, কান, গলা এবং মাথা ও ঘাড়ের রোগের চিকিৎসক ও সার্জন।
+        সঠিক রোগনির্ণয়, সহজ ভাষায় ব্যাখ্যা এবং আপনার জন্য উপযুক্ত চিকিৎসা।
+      </p>
+      <div class="hero-creds">
+        <span class="cred-pill">MBBS (DMC)</span>
+        <span class="cred-pill">BCS (Health)</span>
+        <span class="cred-pill">DLO (BMU)</span>
+        <span class="cred-pill">BMDC নিবন্ধিত</span>
       </div>
-      <div class="stats">
-        <div class="stat"><b>ইএনটি</b><span>নাক · কান · গলা</span></div>
-        <div class="stat"><b>সার্জারি</b><span>ওষুধ ও অস্ত্রোপচার</span></div>
-        <div class="stat"><b>বিসিএস</b><span>স্বাস্থ্য ক্যাডার</span></div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact" id="hero-book-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          অ্যাপয়েন্টমেন্ট নিন
+        </a>
+        <a class="btn btn-ghost-white" href="tel:+8800000000000" id="hero-call-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          এখনই কল করুন
+        </a>
       </div>
-    </div>
-    <div class="portrait">
-      <!-- ছবি যোগ করতে: dr-nafi.jpg নামে ছবিটি এই ফাইলের পাশে রাখুন, নিচের img লাইনের মন্তব্য চিহ্ন সরান এবং ph div মুছে দিন। -->
-      <!-- <img src="dr-nafi.jpg" alt="ডা. তাহসিন আহমেদ নাফি"> -->
-      <div class="ph"><b>TN</b>ডাক্তারের ছবি এখানে বসবে<br><small>(dr-nafi.jpg)</small></div>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="alert">
-      <p class="eyebrow" style="color:#9fdbe6">এই লক্ষণগুলো অবহেলা করবেন না</p>
-      <h2>এর কোনোটি থাকলে <em style="color:#9fdbe6">দ্রুত পরীক্ষা করান।</em></h2>
-      <ul>
-        <li>কানে ব্যথা বা পুঁজ</li><li>কম শোনা</li><li>নাক বন্ধ থাকা</li>
-        <li>বারবার সাইনাসের ব্যথা</li><li>২ সপ্তাহের বেশি গলাব্যথা</li><li>গলার স্বর বসে যাওয়া</li>
-        <li>গিলতে কষ্ট</li><li>ঘাড়ে চাকা</li><li>নাক ডাকা ও ঘুমে শ্বাসকষ্ট</li>
-      </ul>
-      <a class="btn" href="tel:+8800000000000">এখনই কল করুন</a>
-    </div>
-  </div>
-</section>
-
-<section id="conditions">
-  <div class="wrap">
-    <p class="eyebrow">যেসব রোগের চিকিৎসা করা হয়</p>
-    <h2>রোগ বোঝাই সুস্থতার <em>প্রথম ধাপ।</em></h2>
-    <p class="lead">রোগী ও পরিবারের জন্য সহজ ভাষায় তথ্য।</p>
-    <div class="grid">
-      <div class="card"><div class="ic">👂</div><h3>কানের সংক্রমণ</h3><p>কানে ব্যথা, পুঁজ পড়া, বারবার কান পাকা।</p></div>
-      <div class="card"><div class="ic">🔇</div><h3>কম শোনা ও কানে শব্দ</h3><p>শ্রবণ সমস্যা, কানে ভোঁ ভোঁ শব্দ ও মাথা ঘোরার পরীক্ষা।</p></div>
-      <div class="card"><div class="ic">👃</div><h3>সাইনাস ও অ্যালার্জি</h3><p>দীর্ঘস্থায়ী সাইনোসাইটিস, অ্যালার্জিক রাইনাইটিস, নাকের পলিপ।</p></div>
-      <div class="card"><div class="ic">🦴</div><h3>নাকের হাড় বাঁকা</h3><p>নাক বন্ধ, নাক ডাকা ও শ্বাসকষ্ট।</p></div>
-      <div class="card"><div class="ic">🗣️</div><h3>টনসিল ও গলার সমস্যা</h3><p>বারবার টনসিলাইটিস, অ্যাডিনয়েড, গলার প্রদাহ ও স্বরের সমস্যা।</p></div>
-      <div class="card"><div class="ic">🧣</div><h3>মাথা ও ঘাড়ের চাকা</h3><p>থাইরয়েড ও ঘাড়ের ফোলা, প্রয়োজনীয় পরীক্ষাসহ মূল্যায়ন।</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="alt" id="treatments">
-  <div class="wrap">
-    <p class="eyebrow">অস্ত্রোপচার সেবা</p>
-    <h2>যত্নশীল হাত। <em>ভালো ফল।</em></h2>
-    <div class="grid">
-      <div class="card"><h3>টনসিল ও অ্যাডিনয়েড অপারেশন</h3><p>বারবার সংক্রমণ ও শ্বাসনালি বন্ধ হলে।</p></div>
-      <div class="card"><h3>সেপ্টোপ্লাস্টি</h3><p>বাঁকা নাকের হাড় সোজা করে শ্বাস নেওয়া সহজ করে।</p></div>
-      <div class="card"><h3>এন্ডোস্কোপিক সাইনাস সার্জারি</h3><p>দীর্ঘস্থায়ী সাইনাসের ন্যূনতম কাটাছেঁড়ার চিকিৎসা।</p></div>
-      <div class="card"><h3>কানের অপারেশন</h3><p>প্রয়োজনে গ্রোমেট বসানো ও টাইম্পানোপ্লাস্টি।</p></div>
-      <div class="card"><h3>এন্ডোস্কোপিক পরীক্ষা</h3><p>নাক ও গলার এন্ডোস্কোপির মাধ্যমে সঠিক রোগনির্ণয়।</p></div>
-      <div class="card"><h3>ঘাড় ও থাইরয়েড সার্জারি</h3><p>মূল্যায়ন এবং প্রয়োজনে অস্ত্রোপচার।</p></div>
-    </div>
-    <p class="lead" style="font-size:.85rem">কোন সেবা পাওয়া যাবে তা প্রতিষ্ঠান ও রোগীর অবস্থার ওপর নির্ভর করে। অনুগ্রহ করে ডাক্তারের সঙ্গে নিশ্চিত হয়ে নিন।</p>
-  </div>
-</section>
-
-<section id="about">
-  <div class="wrap about">
-    <div class="portrait" style="max-width:380px">
-      <!-- <img src="dr-nafi.jpg" alt="ডা. তাহসিন আহমেদ নাফি"> -->
-      <div class="ph"><b>TN</b>ডাক্তারের ছবি</div>
-    </div>
-    <div>
-      <p class="eyebrow">ডাক্তার পরিচিতি</p>
-      <h2>ডা. তাহসিন আহমেদ <em>নাফি</em></h2>
-      <p class="lead">নাক, কান ও গলা রোগ বিশেষজ্ঞ ও সার্জন · সরকারি স্বাস্থ্য ক্যাডার কর্মকর্তা।</p>
-      <blockquote>“ভালো ইএনটি চিকিৎসা শুরু হয় মন দিয়ে শোনা থেকে, আর শেষ হয় রোগী স্বচ্ছন্দে শুনতে, শ্বাস নিতে ও কথা বলতে পারলে।”</blockquote>
-      <ul>
-        <li><b>MBBS</b> — ঢাকা মেডিকেল কলেজ (DMC)</li>
-        <li><b>BCS (Health)</b> — বাংলাদেশ সিভিল সার্ভিস, স্বাস্থ্য ক্যাডার</li>
-        <li><b>DLO</b> — ডিপ্লোমা ইন ল্যারিঙ্গোলজি অ্যান্ড ওটোলজি, BMU</li>
-        <li><b>বিএমডিসি রেজি. নং</b> — [নম্বর যোগ করুন]</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="alt" id="why">
-  <div class="wrap">
-    <p class="eyebrow">কেন ডা. নাফি</p>
-    <h2>ভিন্নধর্মী <em>ইএনটি সেবা।</em></h2>
-    <div class="why">
-      <div><b>বিশেষজ্ঞ প্রশিক্ষণ</b><p>নাক, কান ও গলার রোগে বিশেষায়িত প্রশিক্ষণ।</p></div>
-      <div><b>সৎ পরামর্শ</b><p>প্রয়োজন হলেই অপারেশন; নইলে ওষুধ ও ফলো-আপ।</p></div>
-      <div><b>স্পষ্ট যোগাযোগ</b><p>বাংলা ও ইংরেজিতে সহজ ব্যাখ্যা।</p></div>
-      <div><b>সহজে যোগাযোগ</b><p>কল বা হোয়াটসঅ্যাপে অ্যাপয়েন্টমেন্ট নিন।</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="alt" id="faq">
-  <div class="wrap">
-    <p class="eyebrow">সাধারণ জিজ্ঞাসা</p>
-    <h2>রোগীরা <em>যা জানতে চান।</em></h2>
-    <p class="lead">কল করার আগে সংক্ষিপ্ত উত্তর। জরুরি প্রয়োজনে সরাসরি চেম্বারে যোগাযোগ করুন।</p>
-    <div class="faq">
-      <details><summary>কীভাবে অ্যাপয়েন্টমেন্ট নেব?</summary><p>নিচের ফর্ম পূরণ করুন, কল করুন, অথবা হোয়াটসঅ্যাপে মেসেজ দিন। চেম্বার ফোনে সময় নিশ্চিত করবে।</p></details>
-      <details><summary>প্রথম দিন কী কী আনব?</summary><p>আগের প্রেসক্রিপশন, পরীক্ষার রিপোর্ট (শ্রবণ পরীক্ষা, এক্স-রে, সিটি স্ক্যান) এবং চলমান ওষুধের তালিকা।</p></details>
-      <details><summary>অপারেশন কি সবসময় লাগবে?</summary><p>না। নাক, কান ও গলার অনেক সমস্যা ওষুধ ও ফলো-আপে সেরে যায়। প্রয়োজন হলেই অপারেশনের পরামর্শ দেওয়া হয়।</p></details>
-      <details><summary>কখন ইএনটি ডাক্তার দেখানো উচিত?</summary><p>কানে ব্যথা বা পুঁজ, কম শোনা, নাক বন্ধ, দুই সপ্তাহের বেশি গলাব্যথা, গলার স্বর বসে যাওয়া বা ঘাড়ে চাকা থাকলে।</p></details>
-      <details><summary>রোগী দেখার সময় ও ফি কত?</summary><p>[রোগী দেখার দিন, সময় ও ফি এখানে যোগ করুন।]</p></details>
-      <details><summary>অনলাইনে পরামর্শ পাওয়া যায় কি?</summary><p>[ফোন বা ভিডিও পরামর্শ আছে কি না এবং কীভাবে নেবেন তা যোগ করুন।]</p></details>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <p class="eyebrow">পরের ধাপ</p>
-    <h2>স্বাস্থ্য নিয়ে <em>দেরি নয়।</em></h2>
-    <div class="contact">
-      <div class="box">
-        <h3>চেম্বার ও অ্যাপয়েন্টমেন্ট</h3>
-        <p><b>ফোন:</b> [ফোন নম্বর যোগ করুন]</p>
-        <p><b>হোয়াটসঅ্যাপ:</b> [নম্বর যোগ করুন]</p>
-        <p><b>হাসপাতাল / চেম্বার:</b> [নাম ও ঠিকানা যোগ করুন]</p>
-        <p><b>রোগী দেখার সময়:</b> [দিন ও সময় যোগ করুন]</p>
-        <div class="cta" style="margin-top:18px">
-          <a class="btn primary" href="tel:+8800000000000">এখনই কল করুন</a>
-          <a class="btn wa" href="https://wa.me/8800000000000">হোয়াটসঅ্যাপ</a>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-value">ইএনটি</span>
+          <span class="hero-stat-label">নাক · কান · গলা</span>
         </div>
-        <div class="social">
-          <a href="https://wa.me/8800000000000" target="_blank" rel="noopener noreferrer"><i class="ico wa">W</i>হোয়াটসঅ্যাপ</a>
-          <a href="https://www.facebook.com/YOUR-PAGE-NAME" target="_blank" rel="noopener noreferrer"><i class="ico fb">f</i>ফেসবুক</a>
-          <a href="https://www.linkedin.com/in/YOUR-PROFILE-NAME" target="_blank" rel="noopener noreferrer"><i class="ico li">in</i>লিংকডইন</a>
+        <div class="hero-stat">
+          <span class="hero-stat-value">বিসিএস</span>
+          <span class="hero-stat-label">স্বাস্থ্য ক্যাডার</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">DLO</span>
+          <span class="hero-stat-label">সার্টিফাইড বিশেষজ্ঞ</span>
         </div>
       </div>
-      <div class="box">
+    </div>
+
+    <div class="doctor-card reveal">
+      <div class="doctor-photo-wrap">
+        <img src="dr-nafi.jpg" alt="ডা. তাহসিন আহমেদ নাফি" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="doctor-photo-ph" style="display:none">
+          <div class="initials">TN</div>
+          <p>ডাক্তারের ছবি<br><small>(dr-nafi.jpg)</small></p>
+        </div>
+      </div>
+      <div class="doctor-badge-float">
+        <div class="badge-icon">🏅</div>
+        <div class="badge-text">
+          <strong>সরকারি বিশেষজ্ঞ</strong>
+          <span>BCS স্বাস্থ্য ক্যাডার</span>
+        </div>
+      </div>
+      <div class="doctor-badge-float2">
+        <span class="badge2-num">DLO</span>
+        <div class="badge2-label">সার্টিফাইড</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar" role="complementary">
+  <div class="wrap">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <div class="trust-item-icon" aria-hidden="true">🎓</div>
+        <span>MBBS — ঢাকা মেডিকেল কলেজ</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-item-icon" aria-hidden="true">🏛️</div>
+        <span>BCS (Health) — সরকারি ক্যাডার</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-item-icon" aria-hidden="true">👂</div>
+        <span>DLO — ল্যারিঙ্গোলজি ও ওটোলজি, BMU</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-item-icon" aria-hidden="true">⚕️</div>
+        <span>BMDC নিবন্ধিত চিকিৎসক</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SYMPTOM ALERT ===== -->
+<section class="symptom-alert" aria-labelledby="symptoms-heading">
+  <div class="wrap symptom-alert-inner">
+    <p class="eyebrow">এই লক্ষণগুলো অবহেলা করবেন না</p>
+    <h2 id="symptoms-heading">এর কোনোটি থাকলে <em>দ্রুত পরীক্ষা করান।</em></h2>
+    <div class="symptoms-grid" role="list">
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>কানে ব্যথা বা পুঁজ</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>কম শোনা</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>নাক বন্ধ থাকা</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>বারবার সাইনাসের ব্যথা</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>২ সপ্তাহের বেশি গলাব্যথা</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>গলার স্বর বসে যাওয়া</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>গিলতে কষ্ট</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>ঘাড়ে চাকা</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>নাক ডাকা ও ঘুমে শ্বাসকষ্ট</span>
+    </div>
+    <a class="btn btn-gold" href="tel:+8800000000000" id="symptom-call-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+      এখনই কল করুন
+    </a>
+  </div>
+</section>
+
+<!-- ===== CONDITIONS ===== -->
+<section class="conditions-section" id="conditions" aria-labelledby="conditions-heading">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <p class="eyebrow">যেসব রোগের চিকিৎসা করা হয়</p>
+      <h2 id="conditions-heading">রোগ বোঝাই সুস্থতার <em>প্রথম ধাপ।</em></h2>
+      <p class="lead">রোগী ও পরিবারের জন্য সহজ ভাষায় তথ্য।</p>
+    </div>
+    <div class="conditions-grid">
+      <article class="condition-card reveal">
+        <div class="condition-icon" aria-hidden="true">👂</div>
+        <h3>কানের সংক্রমণ</h3>
+        <p>কানে ব্যথা, পুঁজ পড়া, বারবার কান পাকা — বিশেষজ্ঞ পরীক্ষা ও চিকিৎসা।</p>
+      </article>
+      <article class="condition-card reveal">
+        <div class="condition-icon" aria-hidden="true">🔇</div>
+        <h3>কম শোনা ও কানে শব্দ</h3>
+        <p>শ্রবণ সমস্যা, কানে ভোঁ ভোঁ শব্দ ও মাথা ঘোরার বিশেষজ্ঞ পরীক্ষা।</p>
+      </article>
+      <article class="condition-card reveal">
+        <div class="condition-icon" aria-hidden="true">👃</div>
+        <h3>সাইনাস ও অ্যালার্জি</h3>
+        <p>দীর্ঘস্থায়ী সাইনোসাইটিস, অ্যালার্জিক রাইনাইটিস, নাকের পলিপ।</p>
+      </article>
+      <article class="condition-card reveal">
+        <div class="condition-icon" aria-hidden="true">🫁</div>
+        <h3>নাকের হাড় বাঁকা</h3>
+        <p>নাক বন্ধ, নাক ডাকা ও শ্বাসকষ্ট — সঠিক নির্ণয় ও চিকিৎসা।</p>
+      </article>
+      <article class="condition-card reveal">
+        <div class="condition-icon" aria-hidden="true">🗣️</div>
+        <h3>টনসিল ও গলার সমস্যা</h3>
+        <p>বারবার টনসিলাইটিস, অ্যাডিনয়েড, গলার প্রদাহ ও স্বরের সমস্যা।</p>
+      </article>
+      <article class="condition-card reveal">
+        <div class="condition-icon" aria-hidden="true">🧣</div>
+        <h3>মাথা ও ঘাড়ের চাকা</h3>
+        <p>থাইরয়েড ও ঘাড়ের ফোলা, প্রয়োজনীয় পরীক্ষাসহ মূল্যায়ন।</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TREATMENTS ===== -->
+<section class="treatments-section" id="treatments" aria-labelledby="treatments-heading">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <p class="eyebrow">অস্ত্রোপচার সেবা</p>
+      <h2 id="treatments-heading">যত্নশীল হাত। <em>ভালো ফল।</em></h2>
+      <p class="lead" style="color:rgba(255,255,255,.6)">আধুনিক সরঞ্জামে নিখুঁতভাবে সম্পাদিত বিশেষজ্ঞ পদ্ধতি।</p>
+    </div>
+    <div class="treatments-grid">
+      <article class="treatment-card reveal">
+        <div class="treatment-num">০১</div>
+        <div class="treatment-body">
+          <h3>টনসিল ও অ্যাডিনয়েড অপারেশন</h3>
+          <p>বারবার সংক্রমণ ও শ্বাসনালি বন্ধ হলে সাধারণ অবেদনে সার্জারি।</p>
+        </div>
+      </article>
+      <article class="treatment-card reveal">
+        <div class="treatment-num">০২</div>
+        <div class="treatment-body">
+          <h3>সেপ্টোপ্লাস্টি</h3>
+          <p>বাঁকা নাকের হাড় সোজা করে শ্বাস নেওয়া সহজ করার অস্ত্রোপচার।</p>
+        </div>
+      </article>
+      <article class="treatment-card reveal">
+        <div class="treatment-num">০৩</div>
+        <div class="treatment-body">
+          <h3>এন্ডোস্কোপিক সাইনাস সার্জারি</h3>
+          <p>দীর্ঘস্থায়ী সাইনাসের ন্যূনতম কাটাছেঁড়ার আধুনিক চিকিৎসা।</p>
+        </div>
+      </article>
+      <article class="treatment-card reveal">
+        <div class="treatment-num">০৪</div>
+        <div class="treatment-body">
+          <h3>কানের অপারেশন</h3>
+          <p>প্রয়োজনে গ্রোমেট বসানো, মায়রিঙ্গোটমি ও টাইম্পানোপ্লাস্টি।</p>
+        </div>
+      </article>
+      <article class="treatment-card reveal">
+        <div class="treatment-num">০৫</div>
+        <div class="treatment-body">
+          <h3>এন্ডোস্কোপিক পরীক্ষা</h3>
+          <p>নাক ও গলার এন্ডোস্কোপির মাধ্যমে সঠিক ও বিস্তারিত রোগনির্ণয়।</p>
+        </div>
+      </article>
+      <article class="treatment-card reveal">
+        <div class="treatment-num">০৬</div>
+        <div class="treatment-body">
+          <h3>ঘাড় ও থাইরয়েড সার্জারি</h3>
+          <p>সতর্কতার সাথে মূল্যায়ন এবং প্রয়োজনে অস্ত্রোপচার।</p>
+        </div>
+      </article>
+    </div>
+    <p class="treatment-disclaimer reveal">
+      ⚠ কোন সেবা পাওয়া যাবে তা প্রতিষ্ঠান ও রোগীর অবস্থার ওপর নির্ভর করে। অনুগ্রহ করে ডাক্তারের সঙ্গে নিশ্চিত হয়ে নিন।
+    </p>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about-section" id="about" aria-labelledby="about-heading">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-image-wrap reveal">
+        <div class="about-photo">
+          <img src="dr-nafi.jpg" alt="ডা. তাহসিন আহমেদ নাফি" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="doctor-photo-ph" style="display:none">
+            <div class="initials">TN</div>
+            <p>ডাক্তারের ছবি</p>
+          </div>
+        </div>
+        <div class="about-accent-box">
+          <div class="num">BMU</div>
+          <div class="lbl">DLO সার্টিফাইড</div>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <p class="eyebrow">ডাক্তার পরিচিতি</p>
+        <h2 id="about-heading">ডা. তাহসিন আহমেদ <em>নাফি</em></h2>
+        <p class="lead">নাক, কান ও গলা রোগ বিশেষজ্ঞ ও সার্জন · সরকারি স্বাস্থ্য ক্যাডার কর্মকর্তা।</p>
+        <blockquote>
+          "ভালো ইএনটি চিকিৎসা শুরু হয় মন দিয়ে শোনা থেকে, আর শেষ হয় রোগী স্বচ্ছন্দে শুনতে, শ্বাস নিতে ও কথা বলতে পারলে।"
+        </blockquote>
+        <ul class="credentials-list" aria-label="যোগ্যতা">
+          <li>
+            <div class="cred-icon" aria-hidden="true">🎓</div>
+            <span class="cred-label">MBBS</span>
+            <span class="cred-value">ঢাকা মেডিকেল কলেজ (DMC)</span>
+          </li>
+          <li>
+            <div class="cred-icon" aria-hidden="true">🏛️</div>
+            <span class="cred-label">BCS (Health)</span>
+            <span class="cred-value">বাংলাদেশ সিভিল সার্ভিস, স্বাস্থ্য ক্যাডার</span>
+          </li>
+          <li>
+            <div class="cred-icon" aria-hidden="true">👂</div>
+            <span class="cred-label">DLO</span>
+            <span class="cred-value">ডিপ্লোমা ইন ল্যারিঙ্গোলজি ও ওটোলজি, BMU</span>
+          </li>
+          <li>
+            <div class="cred-icon" aria-hidden="true">📋</div>
+            <span class="cred-label">BMDC রেজি.</span>
+            <span class="cred-value">[নম্বর যোগ করুন]</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE ===== -->
+<section class="why-section" id="why" aria-labelledby="why-heading">
+  <div class="wrap">
+    <div class="section-header centered reveal">
+      <p class="eyebrow">কেন ডা. নাফি</p>
+      <h2 id="why-heading">ভিন্নধর্মী <em>ইএনটি সেবা।</em></h2>
+      <p class="lead">বিশেষজ্ঞ জ্ঞান, সৎ পরামর্শ এবং আপনার সুস্থতায় অঙ্গীকার।</p>
+    </div>
+    <div class="why-grid">
+      <article class="why-card reveal">
+        <div class="why-number">১</div>
+        <div class="why-icon-wrap" aria-hidden="true">🏅</div>
+        <h3>বিশেষজ্ঞ প্রশিক্ষণ</h3>
+        <p>নাক, কান ও গলার রোগে বিশেষায়িত স্নাতকোত্তর প্রশিক্ষণ এবং BMU থেকে DLO সার্টিফিকেট।</p>
+      </article>
+      <article class="why-card reveal">
+        <div class="why-number">২</div>
+        <div class="why-icon-wrap" aria-hidden="true">💬</div>
+        <h3>সৎ পরামর্শ</h3>
+        <p>প্রয়োজন হলেই অপারেশন; নইলে ওষুধ ও ফলো-আপ — আপনার বিশ্বাসই আমাদের পুরস্কার।</p>
+      </article>
+      <article class="why-card reveal">
+        <div class="why-number">৩</div>
+        <div class="why-icon-wrap" aria-hidden="true">📖</div>
+        <h3>স্পষ্ট যোগাযোগ</h3>
+        <p>বাংলা ও ইংরেজিতে সহজ ভাষায় ব্যাখ্যা, যাতে আপনি রোগ ও চিকিৎসা পুরোপুরি বুঝতে পারেন।</p>
+      </article>
+      <article class="why-card reveal">
+        <div class="why-number">৪</div>
+        <div class="why-icon-wrap" aria-hidden="true">📞</div>
+        <h3>সহজে যোগাযোগ</h3>
+        <p>কল বা হোয়াটসঅ্যাপে অ্যাপয়েন্টমেন্ট নিন। চেম্বার দ্রুত সাড়া দেবে।</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section" id="faq" aria-labelledby="faq-heading">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div>
+        <div class="section-header reveal">
+          <p class="eyebrow">সাধারণ জিজ্ঞাসা</p>
+          <h2 id="faq-heading">রোগীরা <em>যা জানতে চান।</em></h2>
+          <p class="lead">কল করার আগে সংক্ষিপ্ত উত্তর। জরুরি প্রয়োজনে সরাসরি চেম্বারে যোগাযোগ করুন।</p>
+        </div>
+        <div class="faq-list" role="list">
+          <details class="faq-item reveal" role="listitem">
+            <summary>কীভাবে অ্যাপয়েন্টমেন্ট নেব?</summary>
+            <p>নিচের ফর্ম পূরণ করুন, কল করুন, অথবা হোয়াটসঅ্যাপে মেসেজ দিন। চেম্বার ২৪ ঘণ্টার মধ্যে ফোনে সময় নিশ্চিত করবে।</p>
+          </details>
+          <details class="faq-item reveal" role="listitem">
+            <summary>প্রথম দিন কী কী আনব?</summary>
+            <p>আগের প্রেসক্রিপশন, পরীক্ষার রিপোর্ট (শ্রবণ পরীক্ষা, এক্স-রে, সিটি স্ক্যান) এবং চলমান ওষুধের পূর্ণ তালিকা।</p>
+          </details>
+          <details class="faq-item reveal" role="listitem">
+            <summary>অপারেশন কি সবসময় লাগবে?</summary>
+            <p>না। নাক, কান ও গলার অনেক সমস্যা ওষুধ ও ফলো-আপে সেরে যায়। সত্যিকারের প্রয়োজন হলেই অপারেশনের পরামর্শ দেওয়া হয়।</p>
+          </details>
+          <details class="faq-item reveal" role="listitem">
+            <summary>কখন ইএনটি ডাক্তার দেখানো উচিত?</summary>
+            <p>কানে ব্যথা বা পুঁজ, কম শোনা, নাক বন্ধ, দুই সপ্তাহের বেশি গলাব্যথা, গলার স্বর বসে যাওয়া বা ঘাড়ে চাকা থাকলে।</p>
+          </details>
+          <details class="faq-item reveal" role="listitem">
+            <summary>রোগী দেখার সময় ও ফি কত?</summary>
+            <p>[রোগী দেখার দিন, সময় ও ফি এখানে যোগ করুন।]</p>
+          </details>
+          <details class="faq-item reveal" role="listitem">
+            <summary>অনলাইনে পরামর্শ পাওয়া যায় কি?</summary>
+            <p>[ফোন বা ভিডিও পরামর্শ আছে কি না এবং কীভাবে নেবেন তা যোগ করুন।]</p>
+          </details>
+        </div>
+      </div>
+      <div>
+        <div class="faq-cta-box reveal">
+          <p class="eyebrow">পরামর্শের জন্য প্রস্তুত?</p>
+          <h3>স্বাস্থ্য নিয়ে দেরি নয়।</h3>
+          <p>দ্রুত রোগনির্ণয় ভালো ফলের পথ খোলে। আজই চেম্বারে যোগাযোগ করুন এবং সুস্থতার প্রথম ধাপ নিন।</p>
+          <a class="btn btn-primary" href="#contact" id="faq-book-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            অ্যাপয়েন্টমেন্ট চাই
+          </a>
+          <div class="faq-cta-contact">
+            <div class="faq-contact-item">
+              <div class="faq-contact-icon" aria-hidden="true">📞</div>
+              <span>[ফোন নম্বর]</span>
+            </div>
+            <div class="faq-contact-item">
+              <div class="faq-contact-icon" aria-hidden="true">💬</div>
+              <span>[হোয়াটসঅ্যাপ নম্বর]</span>
+            </div>
+            <div class="faq-contact-item">
+              <div class="faq-contact-icon" aria-hidden="true">📍</div>
+              <span>[চেম্বারের ঠিকানা]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact-section" id="contact" aria-labelledby="contact-heading">
+  <div class="wrap">
+    <div class="section-header centered reveal">
+      <p class="eyebrow">পরের ধাপ</p>
+      <h2 id="contact-heading">স্বাস্থ্য নিয়ে <em>দেরি নয়।</em></h2>
+      <p class="lead">আজই ডা. নাফির সাথে পরামর্শের সময় নিন। আমরা ফোনে নিশ্চিত করব।</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p class="eyebrow">চেম্বার ও যোগাযোগ</p>
+        <h3>যোগাযোগ করুন</h3>
+        <p class="contact-info-lead">চেম্বারের দল সময় নির্ধারণ, পথনির্দেশ ও যেকোনো প্রশ্নে সাহায্য করতে প্রস্তুত।</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">📞</div>
+            <div>
+              <span class="contact-detail-label">ফোন</span>
+              <span class="contact-detail-value">[ফোন নম্বর যোগ করুন]</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">💬</div>
+            <div>
+              <span class="contact-detail-label">হোয়াটসঅ্যাপ</span>
+              <span class="contact-detail-value">[নম্বর যোগ করুন]</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">🏥</div>
+            <div>
+              <span class="contact-detail-label">হাসপাতাল / চেম্বার</span>
+              <span class="contact-detail-value">[নাম ও ঠিকানা যোগ করুন]</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">🕐</div>
+            <div>
+              <span class="contact-detail-label">রোগী দেখার সময়</span>
+              <span class="contact-detail-value">[দিন ও সময় যোগ করুন]</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-buttons">
+          <a class="btn btn-primary btn-sm" href="tel:+8800000000000" id="contact-call-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            এখনই কল
+          </a>
+          <a class="btn btn-wa btn-sm" href="https://wa.me/8800000000000" id="contact-wa-btn" target="_blank" rel="noopener noreferrer">💬 হোয়াটসঅ্যাপ</a>
+        </div>
+        <div class="social-row">
+          <a class="social-link" href="https://wa.me/8800000000000" target="_blank" rel="noopener noreferrer">
+            <i class="social-icon si-wa" aria-hidden="true">W</i>হোয়াটসঅ্যাপ
+          </a>
+          <a class="social-link" href="https://www.facebook.com/YOUR-PAGE-NAME" target="_blank" rel="noopener noreferrer">
+            <i class="social-icon si-fb" aria-hidden="true">f</i>ফেসবুক
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/in/YOUR-PROFILE-NAME" target="_blank" rel="noopener noreferrer">
+            <i class="social-icon si-li" aria-hidden="true">in</i>লিংকডইন
+          </a>
+        </div>
+      </div>
+
+      <div class="appt-form-box reveal">
         <h3>অ্যাপয়েন্টমেন্টের অনুরোধ</h3>
-        <form id="appt-form" novalidate>
-          <input name="n" placeholder="আপনার নাম" aria-label="আপনার নাম" required maxlength="80" autocomplete="name">
-          <input name="p" type="tel" placeholder="ফোন নম্বর" aria-label="ফোন নম্বর" required maxlength="20" autocomplete="tel">
-          <select name="s" aria-label="Area"><option>কান</option><option>নাক</option><option>গলা</option><option>ঘাড় / অন্যান্য</option></select>
-          <input name="d" type="date" aria-label="পছন্দের তারিখ (ঐচ্ছিক)" title="পছন্দের তারিখ (ঐচ্ছিক)">
-          <textarea name="m" rows="3" maxlength="1000" placeholder="সংক্ষেপে সমস্যার কথা লিখুন" aria-label="সংক্ষেপে সমস্যার কথা লিখুন"></textarea>
-          <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0">
-          <button class="btn primary" type="submit">অ্যাপয়েন্টমেন্ট চাই</button>
-          <p id="appt-msg" role="status" aria-live="polite" class="form-msg"></p>
+        <p class="sub">তথ্য দিন, আমরা নিশ্চিত করতে কল করব। সাধারণত ২৪ ঘণ্টার মধ্যে।</p>
+        <form id="appt-form" novalidate aria-label="অ্যাপয়েন্টমেন্ট ফর্ম">
+          <div class="form-grid">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="field-name">আপনার নাম <span style="color:#ef4444" aria-hidden="true">*</span></label>
+                <input id="field-name" name="n" placeholder="পূর্ণ নাম" required maxlength="80" autocomplete="name" aria-required="true">
+              </div>
+              <div class="form-field">
+                <label for="field-phone">ফোন নম্বর <span style="color:#ef4444" aria-hidden="true">*</span></label>
+                <input id="field-phone" name="p" type="tel" placeholder="+৮৮০ ..." required maxlength="20" autocomplete="tel" aria-required="true">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="field-area">সমস্যার ধরন</label>
+                <select id="field-area" name="s">
+                  <option>কান</option><option>নাক</option><option>গলা</option><option>ঘাড় / অন্যান্য</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="field-date">পছন্দের তারিখ</label>
+                <input id="field-date" name="d" type="date">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="field-msg">সমস্যার বিবরণ</label>
+              <textarea id="field-msg" name="m" rows="4" maxlength="1000" placeholder="সংক্ষেপে লক্ষণ বা সমস্যার কথা লিখুন…"></textarea>
+            </div>
+            <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0" aria-label="এই ঘর ফাঁকা রাখুন">
+            <button class="btn btn-primary" type="submit" id="appt-submit-btn" style="width:100%;justify-content:center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              অ্যাপয়েন্টমেন্ট পাঠান
+            </button>
+            <p id="appt-msg" role="status" aria-live="polite" class="form-msg"></p>
+          </div>
         </form>
       </div>
     </div>
@@ -193,61 +525,145 @@
 </section>
 </main>
 
-<footer>
+<!-- ===== FOOTER ===== -->
+<footer role="contentinfo">
   <div class="wrap">
-    <div class="cols">
-      <div><h4>ডা. তাহসিন আহমেদ নাফি</h4><p>MBBS (DMC), BCS (Health), DLO (BMU)<br>নাক, কান ও গলা বিশেষজ্ঞ ও সার্জন</p></div>
-      <div><h4>দ্রুত লিংক</h4><p><a href="#about">পরিচিতি</a><br><a href="#conditions">রোগসমূহ</a><br><a href="#treatments">চিকিৎসা</a><br><a href="#contact">যোগাযোগ</a></p></div>
-      <div><h4>যোগাযোগ</h4><p>[ফোন]<br>[ঠিকানা]</p></div>
-    <div><h4>যুক্ত থাকুন</h4>
-        <div class="social">
-          <a href="https://wa.me/8800000000000" target="_blank" rel="noopener noreferrer"><i class="ico wa">W</i>হোয়াটসঅ্যাপ</a>
-          <a href="https://www.facebook.com/YOUR-PAGE-NAME" target="_blank" rel="noopener noreferrer"><i class="ico fb">f</i>ফেসবুক</a>
-          <a href="https://www.linkedin.com/in/YOUR-PROFILE-NAME" target="_blank" rel="noopener noreferrer"><i class="ico li">in</i>লিংকডইন</a>
-        </div></div>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-name">ডা. <span>নাফি</span></div>
+        <p>MBBS (DMC), BCS (Health), DLO (BMU)<br>নাক, কান ও গলা বিশেষজ্ঞ ও সার্জন</p>
+        <div class="footer-social" style="margin-top:20px">
+          <a href="https://wa.me/8800000000000" target="_blank" rel="noopener noreferrer" aria-label="হোয়াটসঅ্যাপ"><i aria-hidden="true">W</i></a>
+          <a href="https://www.facebook.com/YOUR-PAGE-NAME" target="_blank" rel="noopener noreferrer" aria-label="ফেসবুক"><i aria-hidden="true">f</i></a>
+          <a href="https://www.linkedin.com/in/YOUR-PROFILE-NAME" target="_blank" rel="noopener noreferrer" aria-label="লিংকডইন"><i aria-hidden="true">in</i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>দ্রুত লিংক</h4>
+        <a href="#about">পরিচিতি</a>
+        <a href="#conditions">রোগসমূহ</a>
+        <a href="#treatments">চিকিৎসা</a>
+        <a href="#why">কেন আমরা</a>
+        <a href="#faq">জিজ্ঞাসা</a>
+        <a href="#contact">যোগাযোগ</a>
+      </div>
+      <div class="footer-col">
+        <h4>বিশেষজ্ঞ সেবা</h4>
+        <a href="#conditions">কানের সংক্রমণ</a>
+        <a href="#conditions">কম শোনা</a>
+        <a href="#conditions">সাইনাস</a>
+        <a href="#conditions">টনসিল ও গলা</a>
+        <a href="#conditions">মাথা ও ঘাড়</a>
+      </div>
+      <div class="footer-col">
+        <h4>যোগাযোগ</h4>
+        <a href="tel:+8800000000000">[ফোন নম্বর]</a>
+        <a href="https://wa.me/8800000000000">[হোয়াটসঅ্যাপ]</a>
+        <span style="color:rgba(255,255,255,.4);font-size:.88rem">[চেম্বারের ঠিকানা]</span>
+      </div>
     </div>
-    <p class="copy">© ২০২৬ ডা. তাহসিন আহমেদ নাফি। এই সাইটের তথ্য সাধারণ ধারণা দেওয়ার জন্য, চিকিৎসকের পরামর্শের বিকল্প নয়। জরুরি অবস্থায় নিকটস্থ হাসপাতালে যান।</p>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">© ২০২৬ ডা. তাহসিন আহমেদ নাফি। এই সাইটের তথ্য সাধারণ ধারণা দেওয়ার জন্য, চিকিৎসকের পরামর্শের বিকল্প নয়। জরুরি অবস্থায় নিকটস্থ হাসপাতালে যান।</p>
+      <a class="lang-btn" href="index.html" style="color:rgba(255,255,255,.4);border-color:rgba(255,255,255,.12);font-size:.78rem">EN</a>
+    </div>
   </div>
 </footer>
 
-<div class="float">
-  <a class="call" href="tel:+8800000000000">📞 কল</a>
-  <a class="wa" href="https://wa.me/8800000000000">হোয়াটসঅ্যাপ</a>
+<!-- ===== FAB ===== -->
+<div class="fab-group" aria-label="দ্রুত যোগাযোগ">
+  <a class="fab fab-wa" href="https://wa.me/8800000000000" target="_blank" rel="noopener noreferrer">💬 হোয়াটসঅ্যাপ</a>
+  <a class="fab fab-call" href="tel:+8800000000000">📞 কল</a>
 </div>
+
 <script>
+/* ——— Scroll-reveal ——— */
 (function(){
-  var f=document.getElementById('appt-form');if(!f)return;
-  var M={lang:'bn',sending:'পাঠানো হচ্ছে…',ok:'অনুরোধ গ্রহণ করা হয়েছে। আপনার রেফারেন্স {ref}। নিশ্চিত করতে চেম্বার থেকে কল করা হবে।',bad:'অনুগ্রহ করে তথ্য যাচাই করে আবার চেষ্টা করুন।',down:'এখন পাঠানো যায়নি। অনুগ্রহ করে কল করুন, অথবা হোয়াটসঅ্যাপে পাঠান:',wa:'হোয়াটসঅ্যাপে পাঠান',waText:'অ্যাপয়েন্টমেন্টের অনুরোধ'};
-  var msg=document.getElementById('appt-msg'),btn=f.querySelector('button');
-  var today=new Date();today.setMinutes(today.getMinutes()-today.getTimezoneOffset());f.d.min=today.toISOString().slice(0,10);
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){el.classList.add('visible')});
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ obs.observe(el); });
+})();
+
+/* ——— Sticky header shadow ——— */
+(function(){
+  var h = document.getElementById('main-header');
+  window.addEventListener('scroll',function(){
+    h.classList.toggle('scrolled', window.scrollY > 30);
+  },{passive:true});
+})();
+
+/* ——— Mobile menu ——— */
+(function(){
+  var btn = document.getElementById('menu-btn');
+  var nav = document.getElementById('site-nav');
+  if(!btn||!nav) return;
+  function setOpen(o){
+    nav.classList.toggle('open',o);
+    btn.setAttribute('aria-expanded',String(o));
+  }
+  btn.addEventListener('click',function(){ setOpen(!nav.classList.contains('open')); });
+  nav.addEventListener('click',function(e){ if(e.target.tagName==='A') setOpen(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') setOpen(false); });
+})();
+
+/* ——— Appointment form ——— */
+(function(){
+  var f = document.getElementById('appt-form');
+  if(!f) return;
+  var M = {
+    lang:'bn',
+    sending:'পাঠানো হচ্ছে…',
+    ok:'✓ অনুরোধ গ্রহণ হয়েছে। রেফারেন্স: {ref}। চেম্বার কল করে নিশ্চিত করবে।',
+    bad:'অনুগ্রহ করে নাম ও ফোন নম্বর যাচাই করে আবার চেষ্টা করুন।',
+    down:'পাঠানো যায়নি। কল করুন, অথবা হোয়াটসঅ্যাপে পাঠান:',
+    wa:'হোয়াটসঅ্যাপে পাঠান',
+    waText:'অ্যাপয়েন্টমেন্টের অনুরোধ'
+  };
+  var msg = document.getElementById('appt-msg');
+  var btn = f.querySelector('button[type="submit"]');
+  var today = new Date();
+  today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+  if(f.d) f.d.min = today.toISOString().slice(0,10);
+
   f.addEventListener('submit',function(e){
-    e.preventDefault();msg.className='form-msg';msg.textContent='';
-    if(f.n.value.trim().length<2||f.p.value.replace(/[^\d]/g,'').length<7){msg.className='form-msg err';msg.textContent=M.bad;return}
-    btn.disabled=true;var old=btn.textContent;btn.textContent=M.sending;
-    fetch('/api/appointments',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
-      name:f.n.value,phone:f.p.value,area:f.s.value,date:f.d.value,message:f.m.value,website:f.website.value,lang:M.lang})})
-    .then(function(r){return r.json().catch(function(){return{}}).then(function(d){return{ok:r.ok,status:r.status,d:d}})})
+    e.preventDefault();
+    msg.className='form-msg'; msg.textContent='';
+    var name = f.n.value.trim();
+    var phone = f.p.value.replace(/[^\d]/g,'');
+    if(name.length < 2 || phone.length < 7){
+      msg.className='form-msg err'; msg.textContent=M.bad; return;
+    }
+    btn.disabled=true;
+    var oldHTML = btn.innerHTML;
+    btn.innerHTML = M.sending;
+    fetch('/api/appointments',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({name:f.n.value,phone:f.p.value,area:f.s.value,date:f.d.value,message:f.m.value,website:f.website.value,lang:M.lang})
+    })
+    .then(function(r){ return r.json().catch(function(){return{}}).then(function(d){return{ok:r.ok,status:r.status,d:d}}) })
     .then(function(x){
-      if(x.ok){msg.className='form-msg ok';msg.textContent=M.ok.replace('{ref}',x.d.ref);f.reset();return}
-      if(x.status===400){msg.className='form-msg err';msg.textContent=M.bad;return}
+      if(x.ok){ msg.className='form-msg ok'; msg.textContent=M.ok.replace('{ref}',x.d.ref); f.reset(); return; }
+      if(x.status===400){ msg.className='form-msg err'; msg.textContent=M.bad; return; }
       throw new Error('server');
     })
     .catch(function(){
-      msg.className='form-msg err';msg.textContent=M.down+' ';
-      var a=document.createElement('a');a.href='https://wa.me/8800000000000?text='+encodeURIComponent(M.waText+'\n'+f.n.value+'\n'+f.p.value+'\n'+f.m.value);
-      a.textContent=M.wa;a.style.fontWeight='600';a.style.textDecoration='underline';msg.appendChild(a);
+      msg.className='form-msg err'; msg.textContent=M.down+' ';
+      var a=document.createElement('a');
+      a.href='https://wa.me/8800000000000?text='+encodeURIComponent(M.waText+'\n'+f.n.value+'\n'+f.p.value+'\n'+f.m.value);
+      a.textContent=M.wa; a.style.fontWeight='700'; a.style.textDecoration='underline'; a.target='_blank'; a.rel='noopener noreferrer';
+      msg.appendChild(a);
     })
-    .then(function(){btn.disabled=false;btn.textContent=old});
+    .then(function(){ btn.disabled=false; btn.innerHTML=oldHTML; });
   });
-})();
-</script>
-<script>
-(function(){
-  var b=document.getElementById('menu-btn'),n=document.getElementById('site-nav');if(!b||!n)return;
-  function set(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',String(o))}
-  b.addEventListener('click',function(){set(!n.classList.contains('open'))});
-  n.addEventListener('click',function(e){if(e.target.tagName==='A')set(false)});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
 })();
 </script>
 </body>

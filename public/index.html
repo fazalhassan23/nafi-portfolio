@@ -3,189 +3,530 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dr. Tahsin Ahmed Nafi — ENT (Otolaryngologist) & Head-Neck Surgeon</title>
-<meta name="description" content="Dr. Tahsin Ahmed Nafi, MBBS (DMC), BCS (Health), DLO (BMU) — Otolaryngologist & Surgeon. Ear, nose and throat care. Book a consultation.">
+<title>Dr. Tahsin Ahmed Nafi — ENT (Otolaryngologist) &amp; Head-Neck Surgeon</title>
+<meta name="description" content="Dr. Tahsin Ahmed Nafi, MBBS (DMC), BCS (Health), DLO (BMU) — Otolaryngologist &amp; Head-Neck Surgeon. Expert ear, nose, and throat care in Bangladesh. Book a consultation.">
+<meta name="keywords" content="ENT specialist Bangladesh, Otolaryngologist, Head Neck Surgeon, ear nose throat, Dr Nafi, DLO BMU, DMC doctor">
+<meta property="og:title" content="Dr. Tahsin Ahmed Nafi — ENT Specialist &amp; Surgeon">
+<meta property="og:description" content="Otolaryngologist &amp; Head-Neck Surgeon. Expert ENT care. Book a consultation.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <a class="logo" href="#top">Dr. Nafi<small>ENT & HEAD-NECK SURGEON</small></a>
-    <nav id="site-nav"><ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#conditions">Conditions</a></li>
-      <li><a href="#treatments">Treatments</a></li>
-      <li><a href="#why">Why Choose</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul></nav>
-    <a class="lang" href="bn.html">বাংলা</a>
-    <a class="btn primary" href="#contact">Book Consultation</a>
-    <button class="menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+<!-- ===== HEADER ===== -->
+<header id="main-header">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top" aria-label="Dr. Nafi — Home">
+      <span class="logo-name">Dr. <span>Nafi</span></span>
+      <span class="logo-sub">ENT &amp; Head-Neck Surgeon</span>
+    </a>
+    <nav id="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#conditions">Conditions</a></li>
+        <li><a href="#treatments">Treatments</a></li>
+        <li><a href="#why">Why Choose</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a class="lang-btn" href="bn.html" aria-label="Switch to Bangla">বাংলা</a>
+      <a class="btn btn-primary btn-sm" href="#contact" id="nav-book-btn">Book Consultation</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
+<!-- ===== HERO ===== -->
 <main id="top">
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">Specialist · Ear, Nose & Throat</p>
-      <h1>Hi, I'm Dr. Tahsin Ahmed <em>Nafi</em></h1>
-      <p class="lead">Otolaryngologist & Surgeon caring for conditions of the ear, nose, throat, and head and neck. Clear explanations, careful diagnosis, and treatment that fits you.</p>
-      <div class="creds">
-        <span>MBBS (DMC)</span><span>BCS (Health)</span><span>DLO (BMU)</span>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg-cross">✚</div>
+  <div class="hero-bg-cross">✚</div>
+  <div class="hero-wrap">
+    <div class="hero-content reveal">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Specialist · Ear, Nose &amp; Throat · Bangladesh
       </div>
-      <div class="cta">
-        <a class="btn primary" href="tel:+8800000000000">Call Now</a>
-        <a class="btn ghost" href="#conditions">Conditions We Treat</a>
+      <h1 class="hero-title" id="hero-title">
+        Hi, I'm<br>
+        Dr. Tahsin Ahmed<br>
+        <span class="name-highlight">Nafi</span>
+      </h1>
+      <p class="hero-desc">
+        Otolaryngologist &amp; Head-Neck Surgeon dedicated to ear, nose, throat, and head &amp; neck care.
+        Clear explanations, careful diagnosis, and treatment tailored to you.
+      </p>
+      <div class="hero-creds">
+        <span class="cred-pill">MBBS (DMC)</span>
+        <span class="cred-pill">BCS (Health)</span>
+        <span class="cred-pill">DLO (BMU)</span>
+        <span class="cred-pill">BMDC Registered</span>
       </div>
-      <div class="stats">
-        <div class="stat"><b>ENT</b><span>Ear · Nose · Throat</span></div>
-        <div class="stat"><b>Surgery</b><span>Medical &amp; surgical care</span></div>
-        <div class="stat"><b>BCS</b><span>Health cadre</span></div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact" id="hero-book-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Book Consultation
+        </a>
+        <a class="btn btn-ghost-white" href="tel:+8800000000000" id="hero-call-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          Call Now
+        </a>
       </div>
-    </div>
-    <div class="portrait" id="portrait">
-      <!-- To add the doctor's photo: save it as dr-nafi.jpg next to this file, then uncomment the next line and remove the placeholder div. -->
-      <!-- <img src="dr-nafi.jpg" alt="Dr. Tahsin Ahmed Nafi"> -->
-      <div class="ph"><b>TN</b>Doctor's photo goes here<br><small>(save as dr-nafi.jpg)</small></div>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="alert">
-      <p class="eyebrow" style="color:#9fdbe6">Don't ignore these symptoms</p>
-      <h2>If you notice any of these, <em style="color:#9fdbe6">get checked early.</em></h2>
-      <ul>
-        <li>Ear pain or discharge</li><li>Hearing loss</li><li>Blocked nose</li>
-        <li>Frequent sinus pain</li><li>Sore throat &gt; 2 weeks</li><li>Hoarse voice</li>
-        <li>Difficulty swallowing</li><li>Neck lump</li><li>Snoring &amp; sleep apnea</li>
-      </ul>
-      <a class="btn" href="tel:+8800000000000">Call Now</a>
-    </div>
-  </div>
-</section>
-
-<section id="conditions">
-  <div class="wrap">
-    <p class="eyebrow">Conditions We Treat</p>
-    <h2>Understanding your condition is the <em>first step</em> to recovery.</h2>
-    <p class="lead">Plain-language information for patients and families.</p>
-    <div class="grid">
-      <div class="card"><div class="ic">👂</div><h3>Ear Infections</h3><p>Otitis media and externa, ear discharge, pain, and recurrent infections.</p></div>
-      <div class="card"><div class="ic">🔇</div><h3>Hearing Loss &amp; Tinnitus</h3><p>Evaluation of hearing problems, ringing in the ears, and dizziness.</p></div>
-      <div class="card"><div class="ic">👃</div><h3>Sinusitis &amp; Allergy</h3><p>Chronic sinusitis, allergic rhinitis, nasal polyps and blocked nose.</p></div>
-      <div class="card"><div class="ic">🦴</div><h3>Deviated Septum</h3><p>Nasal obstruction, snoring and breathing difficulty.</p></div>
-      <div class="card"><div class="ic">🗣️</div><h3>Tonsils &amp; Throat</h3><p>Recurrent tonsillitis, adenoids, pharyngitis and voice problems.</p></div>
-      <div class="card"><div class="ic">🧣</div><h3>Head &amp; Neck Lumps</h3><p>Thyroid and neck swellings assessed with appropriate investigations.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="alt" id="treatments">
-  <div class="wrap">
-    <p class="eyebrow">Surgical Capabilities</p>
-    <h2>Careful hands. <em>Better outcomes.</em></h2>
-    <div class="grid">
-      <div class="card"><h3>Tonsillectomy &amp; Adenoidectomy</h3><p>For recurrent infection and obstructed breathing.</p></div>
-      <div class="card"><h3>Septoplasty</h3><p>Corrects a deviated nasal septum to improve airflow.</p></div>
-      <div class="card"><h3>Endoscopic Sinus Surgery</h3><p>Minimally invasive treatment for chronic sinus disease.</p></div>
-      <div class="card"><h3>Ear Procedures</h3><p>Including grommet insertion and tympanoplasty where indicated.</p></div>
-      <div class="card"><h3>Endoscopic Diagnosis</h3><p>Nasal and throat endoscopy for accurate diagnosis.</p></div>
-      <div class="card"><h3>Neck &amp; Thyroid Surgery</h3><p>Evaluation and surgical management when needed.</p></div>
-    </div>
-    <p class="lead" style="font-size:.85rem">Procedures offered depend on the facility and your assessment. Please confirm with the doctor.</p>
-  </div>
-</section>
-
-<section id="about">
-  <div class="wrap about">
-    <div class="portrait" style="max-width:380px">
-      <!-- <img src="dr-nafi.jpg" alt="Dr. Tahsin Ahmed Nafi"> -->
-      <div class="ph"><b>TN</b>Doctor's photo</div>
-    </div>
-    <div>
-      <p class="eyebrow">About the Doctor</p>
-      <h2>Dr. Tahsin Ahmed <em>Nafi</em></h2>
-      <p class="lead">Otolaryngologist &amp; Surgeon · Government health cadre officer.</p>
-      <blockquote>“Good ENT care starts with listening, and ends with a patient who can hear, breathe and speak comfortably.”</blockquote>
-      <ul>
-        <li><b>MBBS</b> — Dhaka Medical College (DMC)</li>
-        <li><b>BCS (Health)</b> — Bangladesh Civil Service, Health cadre</li>
-        <li><b>DLO</b> — Diploma in Laryngology &amp; Otology, BMU</li>
-        <li><b>BMDC Reg. No.</b> — [add registration number]</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="alt" id="why">
-  <div class="wrap">
-    <p class="eyebrow">Why Patients Choose Dr. Nafi</p>
-    <h2>A different kind of <em>ENT care.</em></h2>
-    <div class="why">
-      <div><b>Specialist training</b><p>Focused training in ear, nose and throat disease.</p></div>
-      <div><b>Honest advice</b><p>Surgery only when it is truly needed; medicine and follow-up when it isn't.</p></div>
-      <div><b>Clear communication</b><p>Plain explanations in Bangla and English.</p></div>
-      <div><b>Easy to reach</b><p>Call or WhatsApp to book an appointment.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="alt" id="faq">
-  <div class="wrap">
-    <p class="eyebrow">FAQ</p>
-    <h2>Questions patients <em>often ask.</em></h2>
-    <p class="lead">Short answers before you call. For anything urgent, contact the chamber directly.</p>
-    <div class="faq">
-      <details><summary>How do I book an appointment?</summary><p>Use the form below, call, or message on WhatsApp. The chamber will confirm your time by phone.</p></details>
-      <details><summary>What should I bring to the first visit?</summary><p>Previous prescriptions, test reports (hearing test, X-ray, CT scan) and a list of any medicines you take.</p></details>
-      <details><summary>Will I always need surgery?</summary><p>No. Many ear, nose and throat problems are treated with medicine and follow-up. Surgery is advised only when it is needed.</p></details>
-      <details><summary>When should I see an ENT doctor?</summary><p>If ear pain or discharge, hearing loss, a blocked nose, a sore throat lasting more than two weeks, a hoarse voice or a neck lump does not settle.</p></details>
-      <details><summary>What are the visiting hours and fee?</summary><p>[Add visiting days, times and consultation fee here.]</p></details>
-      <details><summary>Is online consultation available?</summary><p>[Add whether phone or video consultation is offered, and how to arrange it.]</p></details>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <p class="eyebrow">Take the Next Step</p>
-    <h2>Your health <em>cannot wait.</em></h2>
-    <div class="contact">
-      <div class="box">
-        <h3>Chamber &amp; Appointment</h3>
-        <p><b>Phone:</b> [add phone number]</p>
-        <p><b>WhatsApp:</b> [add WhatsApp number]</p>
-        <p><b>Hospital / Chamber:</b> [add name &amp; address]</p>
-        <p><b>Visiting hours:</b> [add days &amp; time]</p>
-        <div class="cta" style="margin-top:18px">
-          <a class="btn primary" href="tel:+8800000000000">Call Now</a>
-          <a class="btn wa" href="https://wa.me/8800000000000">WhatsApp Doctor</a>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-value">ENT</span>
+          <span class="hero-stat-label">Ear · Nose · Throat</span>
         </div>
-        <div class="social">
-          <a href="https://wa.me/8800000000000" target="_blank" rel="noopener noreferrer"><i class="ico wa">W</i>WhatsApp</a>
-          <a href="https://www.facebook.com/YOUR-PAGE-NAME" target="_blank" rel="noopener noreferrer"><i class="ico fb">f</i>Facebook</a>
-          <a href="https://www.linkedin.com/in/YOUR-PROFILE-NAME" target="_blank" rel="noopener noreferrer"><i class="ico li">in</i>LinkedIn</a>
+        <div class="hero-stat">
+          <span class="hero-stat-value">BCS</span>
+          <span class="hero-stat-label">Health Cadre Officer</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">DLO</span>
+          <span class="hero-stat-label">Certified Specialist</span>
         </div>
       </div>
-      <div class="box">
+    </div>
+
+    <div class="doctor-card reveal">
+      <div class="doctor-photo-wrap">
+        <img src="dr-nafi.jpg" alt="Dr. Tahsin Ahmed Nafi — ENT Specialist" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="doctor-photo-ph" style="display:none">
+          <div class="initials">TN</div>
+          <p>Doctor's photo<br><small>(save as dr-nafi.jpg)</small></p>
+        </div>
+      </div>
+      <div class="doctor-badge-float">
+        <div class="badge-icon">🏅</div>
+        <div class="badge-text">
+          <strong>Government Specialist</strong>
+          <span>BCS Health Cadre</span>
+        </div>
+      </div>
+      <div class="doctor-badge-float2">
+        <span class="badge2-num">DLO</span>
+        <div class="badge2-label">Certified</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar" role="complementary" aria-label="Credentials and trust indicators">
+  <div class="wrap">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <div class="trust-item-icon" aria-hidden="true">🎓</div>
+        <span>MBBS — Dhaka Medical College</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-item-icon" aria-hidden="true">🏛️</div>
+        <span>BCS (Health) — Government Cadre</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-item-icon" aria-hidden="true">👂</div>
+        <span>DLO — Laryngology &amp; Otology, BMU</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-item-icon" aria-hidden="true">⚕️</div>
+        <span>BMDC Registered Physician</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SYMPTOM ALERT ===== -->
+<section class="symptom-alert" aria-labelledby="symptoms-heading">
+  <div class="wrap symptom-alert-inner">
+    <p class="eyebrow">Don't ignore these symptoms</p>
+    <h2 id="symptoms-heading">If you notice any of these, <em>get checked early.</em></h2>
+    <div class="symptoms-grid" role="list">
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>Ear pain or discharge</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>Hearing loss</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>Blocked nose</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>Frequent sinus pain</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>Sore throat &gt; 2 weeks</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>Hoarse voice</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>Difficulty swallowing</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>Neck lump</span>
+      <span class="symptom-tag" role="listitem"><span class="symptom-dot"></span>Snoring &amp; sleep apnea</span>
+    </div>
+    <a class="btn btn-gold" href="tel:+8800000000000" id="symptom-call-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+      Call the Chamber Now
+    </a>
+  </div>
+</section>
+
+<!-- ===== CONDITIONS ===== -->
+<section class="conditions-section" id="conditions" aria-labelledby="conditions-heading">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <p class="eyebrow">Conditions We Treat</p>
+      <h2 id="conditions-heading">Understanding your condition is the <em>first step</em> to recovery.</h2>
+      <p class="lead">Plain-language information for patients and families about common ENT conditions.</p>
+    </div>
+    <div class="conditions-grid">
+      <article class="condition-card reveal">
+        <div class="condition-icon" aria-hidden="true">👂</div>
+        <h3>Ear Infections</h3>
+        <p>Otitis media and externa, ear discharge, pain, and recurrent infections — expertly diagnosed and managed.</p>
+      </article>
+      <article class="condition-card reveal">
+        <div class="condition-icon" aria-hidden="true">🔇</div>
+        <h3>Hearing Loss &amp; Tinnitus</h3>
+        <p>Comprehensive evaluation of hearing problems, ringing in the ears, dizziness, and balance disorders.</p>
+      </article>
+      <article class="condition-card reveal">
+        <div class="condition-icon" aria-hidden="true">👃</div>
+        <h3>Sinusitis &amp; Allergy</h3>
+        <p>Chronic sinusitis, allergic rhinitis, nasal polyps, and persistent blocked nose — thorough investigation and treatment.</p>
+      </article>
+      <article class="condition-card reveal">
+        <div class="condition-icon" aria-hidden="true">🫁</div>
+        <h3>Deviated Septum</h3>
+        <p>Nasal obstruction, snoring and breathing difficulty caused by a deviated nasal septum.</p>
+      </article>
+      <article class="condition-card reveal">
+        <div class="condition-icon" aria-hidden="true">🗣️</div>
+        <h3>Tonsils &amp; Throat</h3>
+        <p>Recurrent tonsillitis, adenoid problems, pharyngitis, and voice problems in adults and children.</p>
+      </article>
+      <article class="condition-card reveal">
+        <div class="condition-icon" aria-hidden="true">🧣</div>
+        <h3>Head &amp; Neck Lumps</h3>
+        <p>Thyroid and neck swellings assessed thoroughly with appropriate investigations and specialist referral.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TREATMENTS ===== -->
+<section class="treatments-section" id="treatments" aria-labelledby="treatments-heading">
+  <div class="wrap">
+    <div class="section-header reveal">
+      <p class="eyebrow">Surgical Capabilities</p>
+      <h2 id="treatments-heading">Careful hands. <em>Better outcomes.</em></h2>
+      <p class="lead" style="color:rgba(255,255,255,.6)">Specialist procedures performed with precision and care, using modern equipment.</p>
+    </div>
+    <div class="treatments-grid">
+      <article class="treatment-card reveal">
+        <div class="treatment-num">01</div>
+        <div class="treatment-body">
+          <h3>Tonsillectomy &amp; Adenoidectomy</h3>
+          <p>Surgical removal for recurrent infection and obstructed breathing. Performed under general anaesthesia.</p>
+        </div>
+      </article>
+      <article class="treatment-card reveal">
+        <div class="treatment-num">02</div>
+        <div class="treatment-body">
+          <h3>Septoplasty</h3>
+          <p>Corrects a deviated nasal septum to significantly improve airflow and breathing comfort.</p>
+        </div>
+      </article>
+      <article class="treatment-card reveal">
+        <div class="treatment-num">03</div>
+        <div class="treatment-body">
+          <h3>Endoscopic Sinus Surgery</h3>
+          <p>Minimally invasive endoscopic treatment for chronic sinus disease, polyps and recurrent sinusitis.</p>
+        </div>
+      </article>
+      <article class="treatment-card reveal">
+        <div class="treatment-num">04</div>
+        <div class="treatment-body">
+          <h3>Ear Procedures</h3>
+          <p>Including grommet insertion, myringotomy, and tympanoplasty (eardrum repair) where indicated.</p>
+        </div>
+      </article>
+      <article class="treatment-card reveal">
+        <div class="treatment-num">05</div>
+        <div class="treatment-body">
+          <h3>Endoscopic Diagnosis</h3>
+          <p>Nasal and throat endoscopy for accurate, detailed diagnosis with the latest fibre-optic equipment.</p>
+        </div>
+      </article>
+      <article class="treatment-card reveal">
+        <div class="treatment-num">06</div>
+        <div class="treatment-body">
+          <h3>Neck &amp; Thyroid Surgery</h3>
+          <p>Careful evaluation and surgical management of thyroid and neck masses when indicated.</p>
+        </div>
+      </article>
+    </div>
+    <p class="treatment-disclaimer reveal">
+      ⚠ Procedures offered depend on the facility available and your individual assessment. Please confirm with Dr. Nafi at consultation.
+    </p>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about-section" id="about" aria-labelledby="about-heading">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-image-wrap reveal">
+        <div class="about-photo">
+          <img src="dr-nafi.jpg" alt="Dr. Tahsin Ahmed Nafi" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="doctor-photo-ph" style="display:none">
+            <div class="initials">TN</div>
+            <p>Doctor's photo</p>
+          </div>
+        </div>
+        <div class="about-accent-box">
+          <div class="num">BMU</div>
+          <div class="lbl">DLO Certified</div>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <p class="eyebrow">About the Doctor</p>
+        <h2 id="about-heading">Dr. Tahsin Ahmed <em>Nafi</em></h2>
+        <p class="lead">Otolaryngologist &amp; Surgeon · Government health cadre officer serving with distinction.</p>
+        <blockquote>
+          "Good ENT care starts with listening — and ends with a patient who can hear, breathe and speak comfortably."
+        </blockquote>
+        <ul class="credentials-list" aria-label="Qualifications">
+          <li>
+            <div class="cred-icon" aria-hidden="true">🎓</div>
+            <span class="cred-label">MBBS</span>
+            <span class="cred-value">Dhaka Medical College (DMC)</span>
+          </li>
+          <li>
+            <div class="cred-icon" aria-hidden="true">🏛️</div>
+            <span class="cred-label">BCS (Health)</span>
+            <span class="cred-value">Bangladesh Civil Service, Health Cadre</span>
+          </li>
+          <li>
+            <div class="cred-icon" aria-hidden="true">👂</div>
+            <span class="cred-label">DLO</span>
+            <span class="cred-value">Diploma in Laryngology &amp; Otology, BMU</span>
+          </li>
+          <li>
+            <div class="cred-icon" aria-hidden="true">📋</div>
+            <span class="cred-label">BMDC Reg.</span>
+            <span class="cred-value">[Add registration number]</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE ===== -->
+<section class="why-section" id="why" aria-labelledby="why-heading">
+  <div class="wrap">
+    <div class="section-header centered reveal">
+      <p class="eyebrow">Why Patients Choose Dr. Nafi</p>
+      <h2 id="why-heading">A different kind of <em>ENT care.</em></h2>
+      <p class="lead">Specialist knowledge, honest advice, and a commitment to your wellbeing — every visit.</p>
+    </div>
+    <div class="why-grid">
+      <article class="why-card reveal">
+        <div class="why-number">1</div>
+        <div class="why-icon-wrap" aria-hidden="true">🏅</div>
+        <h3>Specialist Training</h3>
+        <p>Focused postgraduate training in ear, nose and throat disease with a Diploma in Laryngology &amp; Otology from BMU.</p>
+      </article>
+      <article class="why-card reveal">
+        <div class="why-number">2</div>
+        <div class="why-icon-wrap" aria-hidden="true">💬</div>
+        <h3>Honest Advice</h3>
+        <p>Surgery only when it is truly needed. Medicine and follow-up when it isn't — your trust is earned, not assumed.</p>
+      </article>
+      <article class="why-card reveal">
+        <div class="why-number">3</div>
+        <div class="why-icon-wrap" aria-hidden="true">📖</div>
+        <h3>Clear Communication</h3>
+        <p>Plain, jargon-free explanations in both Bangla and English so you always understand your diagnosis and options.</p>
+      </article>
+      <article class="why-card reveal">
+        <div class="why-number">4</div>
+        <div class="why-icon-wrap" aria-hidden="true">📞</div>
+        <h3>Easy to Reach</h3>
+        <p>Call or WhatsApp to book an appointment. The chamber team responds promptly to confirm your slot.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section" id="faq" aria-labelledby="faq-heading">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div>
+        <div class="section-header reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-heading">Questions patients <em>often ask.</em></h2>
+          <p class="lead">Short, clear answers. For anything urgent, contact the chamber directly.</p>
+        </div>
+        <div class="faq-list" role="list">
+          <details class="faq-item reveal" role="listitem">
+            <summary>How do I book an appointment?</summary>
+            <p>Use the form below, call, or message on WhatsApp. The chamber will confirm your time slot by phone within 24 hours.</p>
+          </details>
+          <details class="faq-item reveal" role="listitem">
+            <summary>What should I bring to the first visit?</summary>
+            <p>Previous prescriptions, test reports (hearing test, X-ray, CT scan) and a complete list of any medicines you currently take.</p>
+          </details>
+          <details class="faq-item reveal" role="listitem">
+            <summary>Will I always need surgery?</summary>
+            <p>No. Many ear, nose and throat problems are managed effectively with medicine and follow-up. Surgery is advised only when it is genuinely needed.</p>
+          </details>
+          <details class="faq-item reveal" role="listitem">
+            <summary>When should I see an ENT doctor?</summary>
+            <p>If ear pain or discharge, hearing loss, a blocked nose, a sore throat lasting more than two weeks, a hoarse voice, or a neck lump does not improve — see a specialist.</p>
+          </details>
+          <details class="faq-item reveal" role="listitem">
+            <summary>What are the visiting hours and fee?</summary>
+            <p>[Add visiting days, times and consultation fee here.]</p>
+          </details>
+          <details class="faq-item reveal" role="listitem">
+            <summary>Is online consultation available?</summary>
+            <p>[Add whether phone or video consultation is offered, and how to arrange it.]</p>
+          </details>
+        </div>
+      </div>
+      <div>
+        <div class="faq-cta-box reveal">
+          <p class="eyebrow">Ready to consult?</p>
+          <h3>Don't put your health on hold.</h3>
+          <p>Early diagnosis leads to better outcomes. Reach out to the chamber today and take the first step towards feeling better.</p>
+          <a class="btn btn-primary" href="#contact" id="faq-book-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            Request Appointment
+          </a>
+          <div class="faq-cta-contact">
+            <div class="faq-contact-item">
+              <div class="faq-contact-icon" aria-hidden="true">📞</div>
+              <span>[Add phone number]</span>
+            </div>
+            <div class="faq-contact-item">
+              <div class="faq-contact-icon" aria-hidden="true">💬</div>
+              <span>[Add WhatsApp number]</span>
+            </div>
+            <div class="faq-contact-item">
+              <div class="faq-contact-icon" aria-hidden="true">📍</div>
+              <span>[Add chamber address]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact-section" id="contact" aria-labelledby="contact-heading">
+  <div class="wrap">
+    <div class="section-header centered reveal">
+      <p class="eyebrow">Take the Next Step</p>
+      <h2 id="contact-heading">Your health <em>cannot wait.</em></h2>
+      <p class="lead">Book a consultation with Dr. Nafi today. We'll confirm your appointment by phone.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p class="eyebrow">Chamber &amp; Contacts</p>
+        <h3>Get in Touch</h3>
+        <p class="contact-info-lead">The chamber team is ready to assist you with booking, directions, and any questions.</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">📞</div>
+            <div>
+              <span class="contact-detail-label">Phone</span>
+              <span class="contact-detail-value">[Add phone number]</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">💬</div>
+            <div>
+              <span class="contact-detail-label">WhatsApp</span>
+              <span class="contact-detail-value">[Add WhatsApp number]</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">🏥</div>
+            <div>
+              <span class="contact-detail-label">Hospital / Chamber</span>
+              <span class="contact-detail-value">[Add name &amp; address]</span>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">🕐</div>
+            <div>
+              <span class="contact-detail-label">Visiting Hours</span>
+              <span class="contact-detail-value">[Add days &amp; times]</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-buttons">
+          <a class="btn btn-primary btn-sm" href="tel:+8800000000000" id="contact-call-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            Call Now
+          </a>
+          <a class="btn btn-wa btn-sm" href="https://wa.me/8800000000000" id="contact-wa-btn" target="_blank" rel="noopener noreferrer">
+            💬 WhatsApp
+          </a>
+        </div>
+        <div class="social-row" aria-label="Social media links">
+          <a class="social-link" href="https://wa.me/8800000000000" target="_blank" rel="noopener noreferrer" id="footer-wa-link">
+            <i class="social-icon si-wa" aria-hidden="true">W</i>WhatsApp
+          </a>
+          <a class="social-link" href="https://www.facebook.com/YOUR-PAGE-NAME" target="_blank" rel="noopener noreferrer" id="footer-fb-link">
+            <i class="social-icon si-fb" aria-hidden="true">f</i>Facebook
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/in/YOUR-PROFILE-NAME" target="_blank" rel="noopener noreferrer" id="footer-li-link">
+            <i class="social-icon si-li" aria-hidden="true">in</i>LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="appt-form-box reveal">
         <h3>Request an Appointment</h3>
-        <form id="appt-form" novalidate>
-          <input name="n" placeholder="Your name" aria-label="Your name" required maxlength="80" autocomplete="name">
-          <input name="p" type="tel" placeholder="Phone number" aria-label="Phone number" required maxlength="20" autocomplete="tel">
-          <select name="s" aria-label="Area"><option>Ear</option><option>Nose</option><option>Throat</option><option>Neck / Other</option></select>
-          <input name="d" type="date" aria-label="Preferred date (optional)" title="Preferred date (optional)">
-          <textarea name="m" rows="3" maxlength="1000" placeholder="Briefly describe your problem" aria-label="Briefly describe your problem"></textarea>
-          <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0">
-          <button class="btn primary" type="submit">Request Appointment</button>
-          <p id="appt-msg" role="status" aria-live="polite" class="form-msg"></p>
+        <p class="sub">Fill in your details and we'll call you to confirm. Usually within 24 hours.</p>
+        <form id="appt-form" novalidate aria-label="Appointment request form">
+          <div class="form-grid">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="field-name">Your name <span style="color:#ef4444" aria-hidden="true">*</span></label>
+                <input id="field-name" name="n" placeholder="Full name" required maxlength="80" autocomplete="name" aria-required="true">
+              </div>
+              <div class="form-field">
+                <label for="field-phone">Phone number <span style="color:#ef4444" aria-hidden="true">*</span></label>
+                <input id="field-phone" name="p" type="tel" placeholder="+880 ..." required maxlength="20" autocomplete="tel" aria-required="true">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="field-area">Concern area</label>
+                <select id="field-area" name="s" aria-label="Area of concern">
+                  <option>Ear</option>
+                  <option>Nose</option>
+                  <option>Throat</option>
+                  <option>Neck / Other</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="field-date">Preferred date</label>
+                <input id="field-date" name="d" type="date" aria-label="Preferred appointment date (optional)">
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="field-msg">Describe your problem</label>
+              <textarea id="field-msg" name="m" rows="4" maxlength="1000" placeholder="Briefly describe your symptoms or concerns…" aria-label="Briefly describe your problem"></textarea>
+            </div>
+            <input name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0" aria-label="Leave this field empty">
+            <button class="btn btn-primary" type="submit" id="appt-submit-btn" style="width:100%;justify-content:center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Appointment Request
+            </button>
+            <p id="appt-msg" role="status" aria-live="polite" class="form-msg"></p>
+          </div>
         </form>
       </div>
     </div>
@@ -193,61 +534,146 @@
 </section>
 </main>
 
-<footer>
+<!-- ===== FOOTER ===== -->
+<footer role="contentinfo">
   <div class="wrap">
-    <div class="cols">
-      <div><h4>Dr. Tahsin Ahmed Nafi</h4><p>MBBS (DMC), BCS (Health), DLO (BMU)<br>Otolaryngologist &amp; Surgeon</p></div>
-      <div><h4>Quick Links</h4><p><a href="#about">About</a><br><a href="#conditions">Conditions</a><br><a href="#treatments">Treatments</a><br><a href="#contact">Contact</a></p></div>
-      <div><h4>Contact</h4><p>[phone]<br>[address]</p></div>
-    <div><h4>Follow &amp; Message</h4>
-        <div class="social">
-          <a href="https://wa.me/8800000000000" target="_blank" rel="noopener noreferrer"><i class="ico wa">W</i>WhatsApp</a>
-          <a href="https://www.facebook.com/YOUR-PAGE-NAME" target="_blank" rel="noopener noreferrer"><i class="ico fb">f</i>Facebook</a>
-          <a href="https://www.linkedin.com/in/YOUR-PROFILE-NAME" target="_blank" rel="noopener noreferrer"><i class="ico li">in</i>LinkedIn</a>
-        </div></div>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-name">Dr. <span>Nafi</span></div>
+        <p>MBBS (DMC), BCS (Health), DLO (BMU)<br>Otolaryngologist &amp; Head-Neck Surgeon</p>
+        <div class="footer-social" aria-label="Social media links" style="margin-top:20px">
+          <a href="https://wa.me/8800000000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i aria-hidden="true">W</i></a>
+          <a href="https://www.facebook.com/YOUR-PAGE-NAME" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i aria-hidden="true">f</i></a>
+          <a href="https://www.linkedin.com/in/YOUR-PROFILE-NAME" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i aria-hidden="true">in</i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#about">About</a>
+        <a href="#conditions">Conditions</a>
+        <a href="#treatments">Treatments</a>
+        <a href="#why">Why Choose</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Specialities</h4>
+        <a href="#conditions">Ear Infections</a>
+        <a href="#conditions">Hearing Loss</a>
+        <a href="#conditions">Sinusitis</a>
+        <a href="#conditions">Tonsils &amp; Throat</a>
+        <a href="#conditions">Head &amp; Neck</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+8800000000000">[Phone number]</a>
+        <a href="https://wa.me/8800000000000">[WhatsApp]</a>
+        <span style="color:rgba(255,255,255,.4);font-size:.88rem">[Chamber address]</span>
+      </div>
     </div>
-    <p class="copy">© 2026 Dr. Tahsin Ahmed Nafi. Information on this site is general and not a substitute for medical advice. In an emergency, go to the nearest hospital.</p>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">© 2026 Dr. Tahsin Ahmed Nafi. Information on this site is general and is not a substitute for professional medical advice. In an emergency, go to the nearest hospital.</p>
+      <a class="lang-btn" href="bn.html" style="color:rgba(255,255,255,.4);border-color:rgba(255,255,255,.12);font-size:.78rem">বাংলা</a>
+    </div>
   </div>
 </footer>
 
-<div class="float">
-  <a class="call" href="tel:+8800000000000">📞 Call</a>
-  <a class="wa" href="https://wa.me/8800000000000">WhatsApp</a>
+<!-- ===== FAB ===== -->
+<div class="fab-group" aria-label="Quick contact buttons">
+  <a class="fab fab-wa" href="https://wa.me/8800000000000" target="_blank" rel="noopener noreferrer" id="fab-wa-btn">💬 WhatsApp</a>
+  <a class="fab fab-call" href="tel:+8800000000000" id="fab-call-btn">📞 Call</a>
 </div>
+
 <script>
+/* ——— Scroll-reveal ——— */
 (function(){
-  var f=document.getElementById('appt-form');if(!f)return;
-  var M={lang:'en',sending:'Sending…',ok:'Request received. Your reference is {ref}. The chamber will call you to confirm.',bad:'Please check your details and try again.',down:'Could not send right now. Please call, or send it by WhatsApp:',wa:'Send via WhatsApp',waText:'Appointment request'};
-  var msg=document.getElementById('appt-msg'),btn=f.querySelector('button');
-  var today=new Date();today.setMinutes(today.getMinutes()-today.getTimezoneOffset());f.d.min=today.toISOString().slice(0,10);
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){el.classList.add('visible')});
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){ obs.observe(el); });
+})();
+
+/* ——— Sticky header shadow ——— */
+(function(){
+  var h = document.getElementById('main-header');
+  window.addEventListener('scroll',function(){
+    h.classList.toggle('scrolled', window.scrollY > 30);
+  },{passive:true});
+})();
+
+/* ——— Mobile menu ——— */
+(function(){
+  var btn = document.getElementById('menu-btn');
+  var nav = document.getElementById('site-nav');
+  if(!btn||!nav) return;
+  function setOpen(o){
+    nav.classList.toggle('open',o);
+    btn.setAttribute('aria-expanded',String(o));
+    btn.setAttribute('aria-label', o ? 'Close menu' : 'Open menu');
+  }
+  btn.addEventListener('click',function(){ setOpen(!nav.classList.contains('open')); });
+  nav.addEventListener('click',function(e){ if(e.target.tagName==='A') setOpen(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') setOpen(false); });
+})();
+
+/* ——— Appointment form ——— */
+(function(){
+  var f = document.getElementById('appt-form');
+  if(!f) return;
+  var M = {
+    lang:'en',
+    sending:'Sending…',
+    ok:'✓ Request received. Your reference is {ref}. The chamber will call you to confirm.',
+    bad:'Please check your name and phone number and try again.',
+    down:'Could not send right now. Please call, or tap to send via WhatsApp:',
+    wa:'Send via WhatsApp',
+    waText:'Appointment request'
+  };
+  var msg = document.getElementById('appt-msg');
+  var btn = f.querySelector('button[type="submit"]');
+  var today = new Date();
+  today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+  if(f.d) f.d.min = today.toISOString().slice(0,10);
+
   f.addEventListener('submit',function(e){
-    e.preventDefault();msg.className='form-msg';msg.textContent='';
-    if(f.n.value.trim().length<2||f.p.value.replace(/[^\d]/g,'').length<7){msg.className='form-msg err';msg.textContent=M.bad;return}
-    btn.disabled=true;var old=btn.textContent;btn.textContent=M.sending;
-    fetch('/api/appointments',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
-      name:f.n.value,phone:f.p.value,area:f.s.value,date:f.d.value,message:f.m.value,website:f.website.value,lang:M.lang})})
-    .then(function(r){return r.json().catch(function(){return{}}).then(function(d){return{ok:r.ok,status:r.status,d:d}})})
+    e.preventDefault();
+    msg.className='form-msg'; msg.textContent='';
+    var name = f.n.value.trim();
+    var phone = f.p.value.replace(/[^\d]/g,'');
+    if(name.length < 2 || phone.length < 7){
+      msg.className='form-msg err'; msg.textContent=M.bad; return;
+    }
+    btn.disabled=true;
+    var oldText = btn.innerHTML;
+    btn.innerHTML = M.sending;
+    fetch('/api/appointments',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({name:f.n.value,phone:f.p.value,area:f.s.value,date:f.d.value,message:f.m.value,website:f.website.value,lang:M.lang})
+    })
+    .then(function(r){ return r.json().catch(function(){return{}}).then(function(d){return{ok:r.ok,status:r.status,d:d}}) })
     .then(function(x){
-      if(x.ok){msg.className='form-msg ok';msg.textContent=M.ok.replace('{ref}',x.d.ref);f.reset();return}
-      if(x.status===400){msg.className='form-msg err';msg.textContent=M.bad;return}
+      if(x.ok){ msg.className='form-msg ok'; msg.textContent=M.ok.replace('{ref}',x.d.ref); f.reset(); return; }
+      if(x.status===400){ msg.className='form-msg err'; msg.textContent=M.bad; return; }
       throw new Error('server');
     })
     .catch(function(){
-      msg.className='form-msg err';msg.textContent=M.down+' ';
-      var a=document.createElement('a');a.href='https://wa.me/8800000000000?text='+encodeURIComponent(M.waText+'\n'+f.n.value+'\n'+f.p.value+'\n'+f.m.value);
-      a.textContent=M.wa;a.style.fontWeight='600';a.style.textDecoration='underline';msg.appendChild(a);
+      msg.className='form-msg err'; msg.textContent=M.down+' ';
+      var a=document.createElement('a');
+      a.href='https://wa.me/8800000000000?text='+encodeURIComponent(M.waText+'\n'+f.n.value+'\n'+f.p.value+'\n'+f.m.value);
+      a.textContent=M.wa; a.style.fontWeight='700'; a.style.textDecoration='underline'; a.target='_blank'; a.rel='noopener noreferrer';
+      msg.appendChild(a);
     })
-    .then(function(){btn.disabled=false;btn.textContent=old});
+    .then(function(){ btn.disabled=false; btn.innerHTML=oldText; });
   });
-})();
-</script>
-<script>
-(function(){
-  var b=document.getElementById('menu-btn'),n=document.getElementById('site-nav');if(!b||!n)return;
-  function set(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',String(o))}
-  b.addEventListener('click',function(){set(!n.classList.contains('open'))});
-  n.addEventListener('click',function(e){if(e.target.tagName==='A')set(false)});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
 })();
 </script>
 </body>

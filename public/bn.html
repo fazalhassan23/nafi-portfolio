@@ -86,20 +86,7 @@
           <div class="doctor-identity">
             <strong class="doctor-name">ডা. তাহসিন আহমেদ নাফি</strong>
             <p class="doctor-creds-line">MBBS (DMC) · BCS (স্বাস্থ্য) · DLO (BMU) · ওটোল্যারিঙ্গোলজিস্ট ও হেড-নেক সার্জন</p>
-            <div class="hero-pill-badges">
-              <span class="hero-badge hero-badge-teal">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                বিএমডিসি নিবন্ধিত বিশেষজ্ঞ
-              </span>
-              <span class="hero-badge hero-badge-cyan">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"></path></svg>
-                ঢাকা মেডিকেল কলেজ (ডিএমসি)
-              </span>
-              <span class="hero-badge hero-badge-amber">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                সান্ধ্যকালীন চেম্বার
-              </span>
-            </div>
+
           </div>
 
           <p class="hero-lead">
@@ -153,6 +140,7 @@
     </section>
 
     <!-- 2. Chamber & Visiting Information (Placed Early) -->
+    <div class="practice-strip" aria-label="চিকিৎসাসেবা পরিচিতি"><div class="wrap"><div><span>চিকিৎসার ক্ষেত্র</span><strong>কান, নাক, গলা ও হেড-নেক</strong></div><div><span>রোগীদের জন্য</span><strong>প্রাপ্তবয়স্ক ও শিশু</strong></div><div><span>সাক্ষাতের সময়</span><strong>শনি – বৃহস্পতি · বিকাল ৫ – রাত ৮টা</strong></div></div></div>
     <section class="section chamber-section" id="chamber">
       <div class="wrap">
         <div class="section-header reveal">
@@ -388,7 +376,7 @@
           <div class="about-body reveal">
             <span class="eyebrow">চিকিৎসক পরিচিতি</span>
             <h2 class="section-title">ডা. তাহসিন আহমেদ নাফি</h2>
-            
+
             <p>
               ডা. তাহসিন আহমেদ নাফি ঢাকা মেডিকেল কলেজ (DMC) থেকে চিকিৎসা বিজ্ঞানে স্নাতক (MBBS) ডিগ্রি অর্জন করেন এবং পরবর্তীতে ওটোল্যারিঙ্গোলজিতে বিশেষায়িত উচ্চতর ডিগ্রি (DLO) সমাপ্ত করেন। তিনি বর্তমানে ঢাকার চেম্বারে নিয়মিত রোগী পরামর্শ ও বিশেষজ্ঞ সার্জারি সেবা প্রদান করছেন।
             </p>
@@ -403,7 +391,7 @@
           </div>
 
           <aside class="credentials-panel reveal">
-            <h3 class="panel-header">যাচাইকৃত শিক্ষাগত যোগ্যতা</h3>
+            <h3 class="panel-header">শিক্ষা ও যোগ্যতা</h3>
             <ul class="credentials-list">
               <li class="credential-item">
                 <span class="cred-degree">MBBS</span>
@@ -809,25 +797,25 @@
         function normDigits(str) {
           return String(str || '').replace(/[০-৯]/g, function (d) { return '০১২৩৪৫৬৭৮৯'.indexOf(d); });
         }
-        var nameVal = form.name.value.trim();
-        var phoneVal = normDigits(form.phone.value).replace(/[^\d+]/g, '');
-        var dateVal = form.date.value.trim();
+        var nameVal = form.elements.namedItem('name').value.trim();
+        var phoneVal = normDigits(form.elements.namedItem('phone').value).replace(/[^\d+]/g, '');
+        var dateVal = form.elements.namedItem('date').value.trim();
         var hasError = false;
 
         if (nameVal.length < 2) {
-          form.name.classList.add('is-invalid');
+          form.elements.namedItem('name').classList.add('is-invalid');
           if (errName) errName.textContent = 'অনুগ্রহ করে রোগীর পূর্ণ নাম লিখুন।';
           hasError = true;
         }
 
         if (!/^\+?\d{7,15}$/.test(phoneVal)) {
-          form.phone.classList.add('is-invalid');
+          form.elements.namedItem('phone').classList.add('is-invalid');
           if (errPhone) errPhone.textContent = 'অনুগ্রহ করে সঠিক মোবাইল নম্বর দিন (যেমন: 017XXXXXXXX)।';
           hasError = true;
         }
 
         if (dateVal && dateInput.min && dateVal < dateInput.min) {
-          form.date.classList.add('is-invalid');
+          form.elements.namedItem('date').classList.add('is-invalid');
           if (errDate) errDate.textContent = 'অনুগ্রহ করে ভবিষ্যৎ বা আজকের তারিখ নির্বাচন করুন।';
           hasError = true;
         }
@@ -844,10 +832,10 @@
         var payload = {
           name: nameVal,
           phone: phoneVal,
-          area: form.area.value,
+          area: form.elements.namedItem('area').value,
           date: dateVal,
-          message: form.message.value.trim(),
-          website: form.website.value,
+          message: form.elements.namedItem('message').value.trim(),
+          website: form.elements.namedItem('website').value,
           lang: 'bn'
         };
 
@@ -875,15 +863,15 @@
             alertBox.className = 'form-status-alert error active';
             alertBox.innerHTML = '<strong>তথ্য যাচাই করুন</strong>চিহ্নিত ক্ষেত্রগুলো সঠিকভাবে পূরণ করে পুনরায় চেষ্টা করুন।';
             if (res.data.fields.name && errName) {
-              form.name.classList.add('is-invalid');
+              form.elements.namedItem('name').classList.add('is-invalid');
               errName.textContent = 'সঠিক নাম লিখুন।';
             }
             if (res.data.fields.phone && errPhone) {
-              form.phone.classList.add('is-invalid');
+              form.elements.namedItem('phone').classList.add('is-invalid');
               errPhone.textContent = 'সঠিক মোবাইল নম্বর প্রদান করুন।';
             }
             if (res.data.fields.date && errDate) {
-              form.date.classList.add('is-invalid');
+              form.elements.namedItem('date').classList.add('is-invalid');
               errDate.textContent = 'ভবিষ্যতের একটি তারিখ নির্বাচন করুন।';
             }
             return;
@@ -893,7 +881,7 @@
         })
         .catch(function () {
           alertBox.className = 'form-status-alert error active';
-          var waText = encodeURIComponent('অ্যাপয়েন্টমেন্টের অনুরোধ:\nনাম: ' + nameVal + '\nফোন: ' + phoneVal + '\nবিবরণ: ' + form.message.value);
+          var waText = encodeURIComponent('অ্যাপয়েন্টমেন্টের অনুরোধ:\nনাম: ' + nameVal + '\nফোন: ' + phoneVal + '\nবিবরণ: ' + form.elements.namedItem('message').value);
           alertBox.innerHTML = '<strong>অনলাইনে পাঠানো সম্ভব হয়নি</strong>' +
             'অনুগ্রহ করে সরাসরি কল করুন <a href="tel:+8801700000000" style="color:var(--brand);font-weight:600">+৮৮০ ১৭০০-০০০০০০</a> অথবা ' +
             '<a href="https://wa.me/8801700000000?text=' + waText + '" target="_blank" rel="noopener noreferrer" style="color:var(--brand);font-weight:600;text-decoration:underline;">হোয়াটসঅ্যাপে পাঠান</a>।';

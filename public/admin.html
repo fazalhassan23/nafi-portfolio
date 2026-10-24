@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Appointments — Dr. Nafi</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root{--bg:#f3f7f8;--ink:#0f2a33;--muted:#58707a;--card:#fff;--brand:#0b6e7f;--line:#dbe7ea;--new:#b45309;--conf:#0b6e7f;--done:#15803d;--canc:#6b7280;--bad:#b91c1c}
+@media(prefers-color-scheme:dark){:root{--bg:#0b1a1f;--ink:#e6f1f3;--muted:#93acb4;--card:#12262d;--brand:#3fb4c8;--line:#1f3a43;--new:#fbbf24;--conf:#3fb4c8;--done:#4ade80;--canc:#9ca3af;--bad:#f87171}}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:1000px;margin:0 auto;padding:20px 16px 60px}
+header{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}
+h1{font-size:1.3rem;margin:0}
+button,select,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:1px solid var(--line);background:var(--card);padding:8px 14px;border-radius:10px}
+button.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+button.danger{color:var(--bad)}
+input,select,textarea{border:1px solid var(--line);background:var(--card);padding:8px 10px;border-radius:10px;min-width:0}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+#login{max-width:340px;margin:12vh auto;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;display:grid;gap:12px}
+#login p{margin:0;color:var(--muted);font-size:.9rem}
+.err{color:var(--bad);min-height:1.2em;font-size:.9rem;margin:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tabs button[aria-pressed=true]{background:var(--brand);color:#fff;border-color:var(--brand)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tools input{flex:1 1 200px}
+.list{display:grid;gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:10px}
+.top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.top b{font-size:1.05rem}
+.ref{color:var(--muted);font-size:.8rem;font-variant-numeric:tabular-nums}
+.pill{font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:999px;border:1px solid currentColor;text-transform:capitalize}
+.pill.new{color:var(--new)}.pill.confirmed{color:var(--conf)}.pill.completed{color:var(--done)}.pill.cancelled{color:var(--canc)}
+.meta{display:flex;gap:6px 18px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+.meta a{color:var(--brand);font-weight:600}
+.msg{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--bg);border-radius:10px;padding:10px 12px;font-size:.92rem}
+.act{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.act textarea{flex:1 1 220px;height:38px;resize:vertical}
+.empty{text-align:center;color:var(--muted);padding:40px 10px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div id="login" hidden>
+  <h1>Appointments</h1>
+  <p>Dr. Tahsin Ahmed Nafi — private dashboard</p>
+  <label for="pw">Password</label>
+  <input id="pw" type="password" autocomplete="current-password">
+  <p class="err" id="lerr" role="alert"></p>
+  <button class="primary" id="go">Sign in</button>
+</div>
+
+<div class="wrap" id="app" hidden>
+  <header>
+    <h1>Appointment requests</h1>
+    <div class="act">
+      <button id="csv">Export CSV</button>
+      <button id="out">Sign out</button>
+    </div>
+  </header>
+  <div class="tabs" id="tabs"></div>
+  <div class="tools">
+    <input id="q" type="search" placeholder="Search name, phone, reference or message" aria-label="Search">
+  </div>
+  <div class="list" id="list"></div>
+</div>
+
+<script>
+(function(){
+  var STATUSES=['new','confirmed','completed','cancelled'];
+  var state={status:'',q:'',counts:{}};
+  var $=function(id){return document.getElementById(id)};
+  function api(path,opts){
+    opts=opts||{};opts.credentials='same-origin';
+    if(opts.body&&typeof opts.body!=='string'){opts.body=JSON.stringify(opts.body);opts.headers={'Content-Type':'application/json'}}
+    return fetch(path,opts).then(function(r){return r.json().catch(function(){return{}}).then(function(d){if(!r.ok){var e=new Error(d.error||'Error');e.status=r.status;throw e}return d})});
+  }
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+  function show(loggedIn){$('login').hidden=loggedIn;$('app').hidden=!loggedIn;if(loggedIn)load();else $('pw').focus()}
+
+  $('go').onclick=function(){
+    $('lerr').textContent='';
+    api('/api/admin/login',{method:'POST',body:{password:$('pw').value}}).then(function(){$('pw').value='';show(true)}).catch(function(e){$('lerr').textContent=e.message});
+  };
+  $('pw').onkeydown=function(e){if(e.key==='Enter')$('go').click()};
+  $('out').onclick=function(){api('/api/admin/logout',{method:'POST'}).then(function(){show(false)})};
+  $('csv').onclick=function(){location.href='/api/admin/export.csv?'+qs()};
+  var t;$('q').oninput=function(){clearTimeout(t);t=setTimeout(function(){state.q=$('q').value;load()},250)};
+  function qs(){var p=new URLSearchParams();if(state.status)p.set('status',state.status);if(state.q)p.set('q',state.q);return p.toString()}
+
+  function renderTabs(){
+    var box=$('tabs');box.textContent='';
+    [''].concat(STATUSES).forEach(function(s){
+      var n=s===''?STATUSES.reduce(function(a,k){return a+(state.counts[k]||0)},0):(state.counts[s]||0);
+      var b=el('button',null,(s||'all')+' ('+n+')');b.style.textTransform='capitalize';
+      b.setAttribute('aria-pressed',String(state.status===s));
+      b.onclick=function(){state.status=s;load()};box.appendChild(b);
+    });
+  }
+  function fmt(iso){var d=new Date(iso);return isNaN(d)?iso:d.toLocaleString([], {dateStyle:'medium',timeStyle:'short'})}
+  function render(rows){
+    var list=$('list');list.textContent='';
+    if(!rows.length){list.appendChild(el('div','empty','No appointment requests here yet.'));return}
+    rows.forEach(function(r){
+      var c=el('article','item');
+      var top=el('div','top');top.appendChild(el('b',null,r.name));
+      var right=el('span');right.appendChild(el('span','pill '+r.status,r.status));top.appendChild(right);c.appendChild(top);
+      var meta=el('div','meta');
+      var a=el('a',null,r.phone);a.href='tel:'+r.phone;meta.appendChild(a);
+      if(r.area)meta.appendChild(el('span',null,r.area));
+      if(r.preferred_date)meta.appendChild(el('span',null,'Preferred: '+r.preferred_date));
+      meta.appendChild(el('span','ref',r.ref+' · '+fmt(r.created_at)));
+      c.appendChild(meta);
+      if(r.message)c.appendChild(el('div','msg',r.message));
+      var act=el('div','act');
+      var sel=el('select');sel.setAttribute('aria-label','Status');
+      STATUSES.forEach(function(s){var o=el('option',null,s);o.value=s;o.style.textTransform='capitalize';if(s===r.status)o.selected=true;sel.appendChild(o)});
+      var note=el('textarea');note.placeholder='Private note';note.value=r.note||'';note.setAttribute('aria-label','Private note');
+      var save=el('button','primary','Save');
+      save.onclick=function(){save.disabled=true;api('/api/admin/appointments/'+r.id,{method:'PATCH',body:{status:sel.value,note:note.value}}).then(load).catch(fail).then(function(){save.disabled=false})};
+      var del=el('button','danger','Delete');
+      del.onclick=function(){if(del.dataset.sure){api('/api/admin/appointments/'+r.id,{method:'DELETE'}).then(load).catch(fail)}else{del.dataset.sure='1';del.textContent='Confirm delete';setTimeout(function(){delete del.dataset.sure;del.textContent='Delete'},3000)}};
+      act.appendChild(sel);act.appendChild(note);act.appendChild(save);act.appendChild(del);c.appendChild(act);
+      list.appendChild(c);
+    });
+  }
+  function fail(e){if(e.status===401)show(false);else alert2(e.message)}
+  function alert2(m){var l=$('list');var d=el('div','empty',m);l.prepend(d);setTimeout(function(){d.remove()},4000)}
+  function load(){api('/api/admin/appointments?'+qs()).then(function(d){state.counts=d.counts;renderTabs();render(d.rows)}).catch(fail)}
+  api('/api/admin/me').then(function(){show(true)}).catch(function(){show(false)});
+})();
+</script>
+</body>
+</html>

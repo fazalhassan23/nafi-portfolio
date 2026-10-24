@@ -1,0 +1,13 @@
+{
+  "name": "dr-nafi-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website and appointment backend for Dr. Tahsin Ahmed Nafi",
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "dev": "node --env-file=.env server.js"
+  },
+  "engines": {
+    "node": ">=22.5"
+  }
+}

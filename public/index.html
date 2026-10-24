@@ -1,11 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dr. Tahsin Ahmed Nafi — ENT Specialist &amp; Head-Neck Surgeon | Dhaka</title>
   <meta name="description" content="Dr. Tahsin Ahmed Nafi, MBBS (DMC), BCS (Health), DLO (BMU). Specialist clinical and surgical care for ear, nose, throat, sinus, hearing, and voice conditions in Dhaka. Request an appointment.">
-  <script>document.documentElement.classList.add('js-ready');</script>
+  <script>
+    (function () {
+      var t = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.classList.add('js-ready');
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
@@ -37,6 +43,24 @@
       </nav>
 
       <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="theme-toggle-btn" type="button" aria-label="Switch between light and dark theme" title="Toggle theme">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
         <a class="lang-toggle" href="bn.html" hreflang="bn" lang="bn" aria-label="বাংলা সংস্করণে যান">বাংলা</a>
         <a class="btn btn-primary btn-sm" href="#appointment">Request Appointment</a>
         <button class="mobile-toggle" id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
@@ -57,7 +81,7 @@
       <div class="wrap hero-grid">
         <div class="hero-content reveal">
           <span class="eyebrow">Specialist ENT Practice · Dhaka</span>
-          <h1 class="hero-headline">Specialist care for your ear, nose &amp; throat.</h1>
+          <h1 class="hero-headline">Specialist care for your <span class="highlight-brand">ear, nose &amp; throat.</span></h1>
 
           <div class="doctor-identity">
             <strong class="doctor-name">Dr. Tahsin Ahmed Nafi</strong>
@@ -251,7 +275,7 @@
           <article class="condition-panel reveal-item">
             <div class="condition-head">
               <div class="condition-icon-badge" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"></path>
                   <circle cx="12" cy="9" r="2.5"></circle>
                 </svg>
@@ -304,7 +328,7 @@
         <div class="guidance-box reveal">
           <div class="guidance-grid">
             <div class="guidance-text">
-              <span class="eyebrow" style="color:var(--brand)">Clinical Advice</span>
+              <span class="eyebrow">Clinical Advice</span>
               <h3>When to Seek Timely ENT Evaluation</h3>
               <p>While many ear, nose, and throat symptoms are benign and resolve with routine care, certain clinical signs benefit from early specialist examination.</p>
             </div>
@@ -606,7 +630,7 @@
 
   </main>
 
-  <!-- 9. Restrained Footer -->
+  <!-- 9. Restrained Footer (Deep Navy Medicare Aesthetic) -->
   <footer class="site-footer" role="contentinfo">
     <div class="wrap">
       <div class="footer-grid">
@@ -646,7 +670,7 @@
           © 2026 Dr. Tahsin Ahmed Nafi. Information provided on this website is for general health guidance and patient education. It does not replace individualized clinical assessment by a registered physician. For medical emergencies, visit the nearest hospital emergency room.
         </p>
         <div class="footer-lang-switch">
-          <a href="bn.html" hreflang="bn" lang="bn" style="color:var(--brand)">বাংলা সংস্করণে পড়ুন</a>
+          <a href="bn.html" hreflang="bn" lang="bn" style="color:var(--brand);font-weight:600">বাংলা সংস্করণে পড়ুন</a>
         </div>
       </div>
     </div>
@@ -667,12 +691,24 @@
     </div>
   </div>
 
-  <!-- Interactive JavaScript: Accessible Navigation, Scroll Animations & Verified Appointment Submission -->
+  <!-- Interactive JavaScript: Theme Toggle, Accessible Navigation, Scroll Animations & Verified Appointment Submission -->
   <script>
     (function () {
       'use strict';
 
-      // 1. Subtle Scroll Reveal Animations
+      // 1. Theme Toggle (Light / Dark Mode with LocalStorage persistence)
+      var themeBtn = document.getElementById('theme-toggle-btn');
+      if (themeBtn) {
+        themeBtn.addEventListener('click', function () {
+          var current = document.documentElement.getAttribute('data-theme') || 'light';
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+          themeBtn.setAttribute('aria-label', next === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        });
+      }
+
+      // 2. Subtle Scroll Reveal Animations
       if ('IntersectionObserver' in window) {
         var scrollObserver = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
@@ -692,7 +728,7 @@
         });
       }
 
-      // 2. Mobile Menu Toggle with Accessibility
+      // 3. Mobile Menu Toggle with Accessibility
       var menuBtn = document.getElementById('mobile-menu-btn');
       var navMenu = document.getElementById('primary-nav');
 
@@ -721,7 +757,7 @@
         });
       }
 
-      // 3. Appointment Form Submission & Validation
+      // 4. Appointment Form Submission & Validation
       var form = document.getElementById('appointment-form');
       if (!form) return;
 

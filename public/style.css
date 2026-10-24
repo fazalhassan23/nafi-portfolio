@@ -1,91 +1,96 @@
 /* ==========================================================================
    Dr. Tahsin Ahmed Nafi — ENT Specialist & Head-Neck Surgeon
    Professional Medical Portfolio & Appointment System
-   Palette: Warm White, Deep Navy, Muted Teal
+   Inspired by Medicare Aesthetic: Clean White Mode with Medical Blue Accents
    ========================================================================== */
 
-:root {
-  /* Palette */
-  --bg-page: #fbfbf9;
+/* --------------------------------------------------------------------------
+   Theme Variables (White Mode Default / Medicare Inspiration)
+   -------------------------------------------------------------------------- */
+:root,
+[data-theme="light"] {
+  /* Surfaces & Backgrounds */
+  --bg-page: #f8fafc;
   --bg-surface: #ffffff;
-  --bg-subtle: #f3f6f7;
-  --bg-tint: #edf4f5;
-  --bg-dark: #0f2137;
-  --bg-dark-subtle: #162b45;
+  --bg-subtle: #f0f4f9;
+  --bg-tint: #edf4fd;
+  --bg-dark: #0b1a30;
+  --bg-dark-subtle: #12243d;
 
   /* Typography Colors */
-  --ink-primary: #0f2137;
-  --ink-secondary: #4a5c68;
-  --ink-muted: #6f818d;
-  --ink-light: #f5f8f9;
-  --ink-light-muted: #9eb1be;
+  --ink-primary: #0f223a;
+  --ink-secondary: #475a6f;
+  --ink-muted: #6b7f94;
+  --ink-light: #ffffff;
+  --ink-light-muted: #9ab0c7;
 
-  /* Clinical Accents */
-  --brand: #1b6b76;
-  --brand-hover: #14535c;
-  --brand-subtle: #e5f1f3;
-  --brand-border: #b8d7dc;
+  /* Clinical Accents (Medicare Blue) */
+  --brand: #2563eb;
+  --brand-hover: #1d4ed8;
+  --brand-subtle: #eff6ff;
+  --brand-border: #bfdbfe;
 
   /* Borders & Rules */
-  --border-light: #e6ecee;
-  --border-medium: #d1dde0;
-  --border-strong: #a4b9be;
+  --border-light: #e2ecf6;
+  --border-medium: #cbdbe9;
+  --border-strong: #94b5d6;
 
   /* Feedback */
-  --success-bg: #eef7f2;
-  --success-border: #a8dec0;
-  --success-ink: #166534;
-  --error-bg: #fdf2f2;
-  --error-border: #f8b4b4;
+  --success-bg: #ecfdf5;
+  --success-border: #a7f3d0;
+  --success-ink: #065f46;
+  --error-bg: #fef2f2;
+  --error-border: #fecaca;
   --error-ink: #991b1b;
   --wa-green: #128c7e;
   --wa-hover: #0b685d;
 
-  /* Shadows (Restrained & Soft) */
-  --shadow-subtle: 0 1px 3px rgba(15, 33, 55, 0.04), 0 1px 2px rgba(15, 33, 55, 0.02);
-  --shadow-card: 0 4px 12px rgba(15, 33, 55, 0.05);
-  --shadow-hover: 0 8px 24px rgba(15, 33, 55, 0.08);
+  /* Shadows (Clean & Ambient) */
+  --shadow-subtle: 0 1px 3px rgba(15, 34, 58, 0.04), 0 1px 2px rgba(15, 34, 58, 0.02);
+  --shadow-card: 0 4px 20px rgba(37, 99, 235, 0.05);
+  --shadow-hover: 0 10px 28px rgba(37, 99, 235, 0.12);
 
   /* Layout */
   --wrap-max: 1140px;
   --wrap-narrow: 840px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
 
   /* Easing */
   --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-quick: cubic-bezier(0.2, 0, 0, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-page: #0a1726;
-    --bg-surface: #102136;
-    --bg-subtle: #142942;
-    --bg-tint: #183353;
-    --bg-dark: #07101a;
-    --bg-dark-subtle: #0d1e30;
+/* --------------------------------------------------------------------------
+   Dark Mode Theme Variables
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] {
+  --bg-page: #0a1726;
+  --bg-surface: #102136;
+  --bg-subtle: #142942;
+  --bg-tint: #183353;
+  --bg-dark: #07101a;
+  --bg-dark-subtle: #0d1e30;
 
-    --ink-primary: #f2f7fa;
-    --ink-secondary: #b6cad6;
-    --ink-muted: #859cae;
-    --ink-light: #ffffff;
-    --ink-light-muted: #9eb1be;
+  --ink-primary: #f2f7fa;
+  --ink-secondary: #b6cad6;
+  --ink-muted: #859cae;
+  --ink-light: #ffffff;
+  --ink-light-muted: #9eb1be;
 
-    --brand: #38a5b3;
-    --brand-hover: #4dc2d1;
-    --brand-subtle: #163644;
-    --brand-border: #235467;
+  --brand: #3b82f6;
+  --brand-hover: #60a5fa;
+  --brand-subtle: #172e4d;
+  --brand-border: #254e7d;
 
-    --border-light: #1c354e;
-    --border-medium: #27496a;
-    --border-strong: #3b6691;
+  --border-light: #1c354e;
+  --border-medium: #27496a;
+  --border-strong: #3b6691;
 
-    --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-card: 0 4px 14px rgba(0, 0, 0, 0.4);
-    --shadow-hover: 0 8px 26px rgba(0, 0, 0, 0.5);
-  }
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 8px 26px rgba(0, 0, 0, 0.5);
 }
 
 /* Base Reset & Typography */
@@ -108,6 +113,7 @@ body {
   line-height: 1.65;
   letter-spacing: -0.01em;
   padding-bottom: 0;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 @media (max-width: 768px) {
@@ -212,15 +218,22 @@ body.bn h1, body.bn h2, body.bn h3, body.bn h4 {
   margin-right: auto;
 }
 
+/* Medicare-inspired Rounded Eyebrow Pill */
 .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-family: 'Inter', sans-serif;
   font-size: 0.8125rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   color: var(--brand);
-  margin-bottom: 10px;
-  display: block;
+  background-color: var(--brand-subtle);
+  border: 1px solid var(--brand-border);
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 14px;
 }
 
 body.bn .eyebrow {
@@ -232,6 +245,10 @@ body.bn .eyebrow {
   font-size: clamp(1.85rem, 3.5vw, 2.5rem);
   letter-spacing: -0.015em;
   margin-bottom: 12px;
+}
+
+.highlight-brand {
+  color: var(--brand);
 }
 
 .lead {
@@ -252,7 +269,7 @@ body.bn .eyebrow {
   font-family: 'Inter', sans-serif;
   font-size: 0.9375rem;
   font-weight: 550;
-  padding: 12px 22px;
+  padding: 12px 24px;
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
   transition: transform 0.18s var(--ease-smooth),
@@ -277,7 +294,7 @@ body.bn .btn {
   background-color: var(--brand);
   color: #ffffff;
   border-color: var(--brand);
-  box-shadow: 0 1px 2px rgba(27, 107, 118, 0.1);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
 }
 
 .btn-primary:hover {
@@ -285,7 +302,7 @@ body.bn .btn {
   border-color: var(--brand-hover);
   color: #ffffff;
   transform: translateY(-1.5px);
-  box-shadow: 0 4px 14px rgba(27, 107, 118, 0.28);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
 }
 
 .btn-secondary {
@@ -297,9 +314,9 @@ body.bn .btn {
 .btn-secondary:hover {
   border-color: var(--brand);
   color: var(--brand);
-  background-color: var(--bg-page);
+  background-color: var(--bg-subtle);
   transform: translateY(-1.5px);
-  box-shadow: 0 4px 12px rgba(15, 33, 55, 0.06);
+  box-shadow: 0 4px 14px rgba(15, 34, 58, 0.06);
 }
 
 .btn-wa {
@@ -317,7 +334,7 @@ body.bn .btn {
 }
 
 .btn-sm {
-  padding: 8px 16px;
+  padding: 8px 18px;
   font-size: 0.875rem;
 }
 
@@ -328,23 +345,21 @@ body.bn .btn {
   position: sticky;
   top: 0;
   z-index: 90;
-  background-color: rgba(251, 251, 249, 0.95);
-  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-light);
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  .site-header {
-    background-color: rgba(10, 23, 38, 0.95);
-  }
+[data-theme="dark"] .site-header {
+  background-color: rgba(10, 23, 38, 0.95);
 }
 
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 74px;
   gap: 20px;
 }
 
@@ -375,7 +390,7 @@ body.bn .brand-name {
 .brand-role {
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--ink-muted);
+  color: var(--brand);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -430,7 +445,7 @@ body.bn .brand-role {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .lang-toggle {
@@ -448,6 +463,42 @@ body.bn .brand-role {
   background-color: var(--brand-subtle);
   border-color: var(--brand);
   transform: translateY(-1px);
+}
+
+/* Theme Toggle Button (Sun / Moon) */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-medium);
+  background-color: var(--bg-surface);
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: all 0.18s var(--ease-smooth);
+}
+
+.theme-toggle:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+  background-color: var(--brand-subtle);
+  transform: translateY(-1px);
+}
+
+[data-theme="light"] .theme-toggle .sun-icon {
+  display: none;
+}
+[data-theme="light"] .theme-toggle .moon-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  display: block;
+}
+[data-theme="dark"] .theme-toggle .moon-icon {
+  display: none;
 }
 
 .mobile-toggle {
@@ -471,12 +522,12 @@ body.bn .brand-role {
   .site-nav {
     display: none;
     position: absolute;
-    top: 72px;
+    top: 74px;
     left: 0;
     right: 0;
     background-color: var(--bg-surface);
     border-bottom: 1px solid var(--border-light);
-    box-shadow: var(--shadow-card);
+    box-shadow: var(--shadow-hover);
     padding: 20px 24px 28px;
     flex-direction: column;
     align-items: flex-start;
@@ -519,10 +570,10 @@ body.bn .brand-role {
    Hero Section: Editorial Layout & Restrained Portrait Frame
    ========================================================================== */
 .hero-section {
-  padding-top: clamp(40px, 6vw, 72px);
-  padding-bottom: clamp(48px, 6vw, 80px);
+  padding-top: clamp(48px, 6vw, 76px);
+  padding-bottom: clamp(52px, 6vw, 84px);
   border-bottom: 1px solid var(--border-light);
-  background: linear-gradient(180deg, var(--bg-page) 0%, var(--bg-subtle) 100%);
+  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-page) 100%);
 }
 
 .hero-grid {
@@ -585,8 +636,9 @@ body.bn .doctor-name {
   border: 1px solid var(--border-medium);
   border-left: 3px solid var(--brand);
   border-radius: var(--radius-sm);
-  padding: 12px 16px;
+  padding: 14px 18px;
   margin-bottom: 28px;
+  box-shadow: var(--shadow-subtle);
   transition: transform 0.22s var(--ease-smooth),
               box-shadow 0.22s ease,
               border-left-color 0.22s ease;
@@ -594,7 +646,7 @@ body.bn .doctor-name {
 
 .hero-chamber-callout:hover {
   transform: translateX(3px);
-  box-shadow: 0 4px 14px rgba(15, 33, 55, 0.05);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
   border-left-color: var(--brand-hover);
 }
 
@@ -648,9 +700,9 @@ body.bn .doctor-name {
 }
 
 .portrait-frame:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2.5px);
   box-shadow: var(--shadow-hover);
-  border-color: var(--border-strong);
+  border-color: var(--brand-border);
 }
 
 .portrait-inner {
@@ -669,8 +721,8 @@ body.bn .doctor-name {
 
 .portrait-emblem {
   position: relative;
-  width: 72px;
-  height: 72px;
+  width: 76px;
+  height: 76px;
   margin-bottom: 18px;
   display: grid;
   place-items: center;
@@ -678,7 +730,7 @@ body.bn .doctor-name {
 }
 
 .portrait-frame:hover .portrait-emblem {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .emblem-ring {
@@ -689,7 +741,7 @@ body.bn .doctor-name {
 .emblem-initials {
   position: absolute;
   font-family: 'DM Serif Display', Georgia, serif;
-  font-size: 1.65rem;
+  font-size: 1.75rem;
   color: var(--brand);
 }
 
@@ -762,7 +814,7 @@ body.bn .caption-specialty {
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
   background-color: var(--bg-surface);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: var(--shadow-card);
   overflow: hidden;
   transition: transform 0.25s var(--ease-smooth),
               box-shadow 0.25s ease,
@@ -770,9 +822,9 @@ body.bn .caption-specialty {
 }
 
 .chamber-card:hover {
-  transform: translateY(-1.5px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
-  border-color: var(--border-strong);
+  border-color: var(--brand-border);
 }
 
 .chamber-header-bar {
@@ -810,7 +862,7 @@ body.bn .caption-specialty {
 }
 
 .chamber-col:hover {
-  background-color: rgba(237, 244, 245, 0.4);
+  background-color: rgba(237, 244, 253, 0.4);
 }
 
 .chamber-col:last-child {
@@ -897,6 +949,7 @@ body.bn .chamber-label {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 28px;
+  box-shadow: var(--shadow-subtle);
   transition: transform 0.24s var(--ease-smooth),
               border-color 0.2s ease,
               box-shadow 0.24s ease;
@@ -905,7 +958,7 @@ body.bn .chamber-label {
 .condition-panel:hover {
   transform: translateY(-2.5px);
   border-color: var(--brand-border);
-  box-shadow: 0 8px 22px rgba(15, 33, 55, 0.07);
+  box-shadow: var(--shadow-hover);
 }
 
 .condition-head {
@@ -916,10 +969,11 @@ body.bn .chamber-label {
 }
 
 .condition-icon-badge {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-sm);
-  background-color: var(--bg-tint);
+  background-color: var(--brand-subtle);
+  border: 1px solid var(--brand-border);
   color: var(--brand);
   display: grid;
   place-items: center;
@@ -967,7 +1021,7 @@ body.bn .chamber-label {
 }
 
 .condition-panel:hover .condition-item {
-  transform: translateX(1px);
+  transform: translateX(2px);
 }
 
 .condition-item::before {
@@ -990,11 +1044,12 @@ body.bn .chamber-label {
   border: 1px solid var(--brand-border);
   border-radius: var(--radius-md);
   padding: clamp(24px, 4vw, 36px);
+  box-shadow: var(--shadow-card);
   transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .guidance-box:hover {
-  box-shadow: 0 6px 20px rgba(27, 107, 118, 0.08);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
 }
 
 .guidance-grid {
@@ -1033,7 +1088,7 @@ body.bn .chamber-label {
 }
 
 .guidance-box:hover .guidance-bullet {
-  transform: translateX(1px);
+  transform: translateX(2px);
 }
 
 .guidance-bullet svg {
@@ -1082,7 +1137,7 @@ body.bn .chamber-label {
 }
 
 .about-quote:hover {
-  transform: translateX(2px);
+  transform: translateX(3px);
   border-left-color: var(--brand-hover);
 }
 
@@ -1096,13 +1151,14 @@ body.bn .about-quote {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
-  padding: 24px;
+  padding: 26px;
+  box-shadow: var(--shadow-card);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .credentials-panel:hover {
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-subtle);
+  border-color: var(--brand-border);
+  box-shadow: var(--shadow-hover);
 }
 
 .panel-header {
@@ -1134,12 +1190,12 @@ body.bn .about-quote {
 .cred-degree {
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--ink-primary);
+  color: var(--brand);
 }
 
 .cred-inst {
   font-size: 0.85rem;
-  color: var(--ink-muted);
+  color: var(--ink-secondary);
 }
 
 .reg-note {
@@ -1169,7 +1225,8 @@ body.bn .about-quote {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
-  padding: 22px;
+  padding: 24px;
+  box-shadow: var(--shadow-subtle);
   transition: transform 0.24s var(--ease-smooth),
               border-color 0.2s ease,
               box-shadow 0.24s ease;
@@ -1178,7 +1235,7 @@ body.bn .about-quote {
 .procedure-item:hover {
   transform: translateY(-2px);
   border-color: var(--brand-border);
-  box-shadow: 0 6px 18px rgba(15, 33, 55, 0.05);
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.08);
 }
 
 .procedure-title {
@@ -1235,6 +1292,7 @@ body.bn .about-quote {
   border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
   overflow: hidden;
+  box-shadow: var(--shadow-subtle);
   transition: border-color 0.2s ease,
               box-shadow 0.2s ease,
               transform 0.2s ease;
@@ -1242,7 +1300,7 @@ body.bn .about-quote {
 
 .faq-card:hover {
   border-color: var(--brand-border);
-  box-shadow: 0 4px 14px rgba(15, 33, 55, 0.04);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.06);
 }
 
 .faq-question {
@@ -1304,12 +1362,13 @@ body.bn .about-quote {
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
   padding: clamp(24px, 4vw, 32px);
+  box-shadow: var(--shadow-card);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .contact-info-panel:hover {
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-subtle);
+  border-color: var(--brand-border);
+  box-shadow: var(--shadow-hover);
 }
 
 .info-title {
@@ -1376,13 +1435,13 @@ body.bn .detail-label {
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-md);
   padding: clamp(24px, 4vw, 36px);
-  box-shadow: var(--shadow-subtle);
+  box-shadow: var(--shadow-card);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form-card:hover {
-  border-color: var(--border-strong);
-  box-shadow: 0 6px 20px rgba(15, 33, 55, 0.06);
+  border-color: var(--brand-border);
+  box-shadow: var(--shadow-hover);
 }
 
 .form-header {
@@ -1427,7 +1486,7 @@ body.bn .detail-label {
 .form-select,
 .form-textarea {
   width: 100%;
-  padding: 11px 14px;
+  padding: 12px 14px;
   font-family: inherit;
   font-size: 0.95rem;
   color: var(--ink-primary);
@@ -1534,7 +1593,7 @@ body.bn .detail-label {
 }
 
 /* ==========================================================================
-   Restrained Footer
+   Restrained Deep Navy Footer (Medicare inspired)
    ========================================================================== */
 .site-footer {
   background-color: var(--bg-dark);
@@ -1614,7 +1673,7 @@ body.bn .footer-heading {
 
 .footer-bottom {
   padding-top: 24px;
-  border-top: 1px solid var(--border-light);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1646,17 +1705,15 @@ body.bn .footer-heading {
   left: 0;
   right: 0;
   z-index: 80;
-  background-color: rgba(251, 251, 249, 0.96);
+  background-color: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--border-medium);
   padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
-  box-shadow: 0 -2px 10px rgba(15, 33, 55, 0.06);
+  box-shadow: 0 -2px 10px rgba(15, 34, 58, 0.06);
 }
 
-@media (prefers-color-scheme: dark) {
-  .mobile-bottom-bar {
-    background-color: rgba(16, 33, 54, 0.96);
-  }
+[data-theme="dark"] .mobile-bottom-bar {
+  background-color: rgba(16, 33, 54, 0.96);
 }
 
 .mobile-bottom-actions {

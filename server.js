@@ -204,18 +204,41 @@ async function createAppointment(req, res, b) {
   send(res, 201, { ok: true, ref });
 }
 
-async function queryRows(q) {
+function appointmentFilter(q) {
   const where = [], args = [];
   if (STATUSES.includes(q.get('status'))) { where.push('status = ?'); args.push(q.get('status')); }
-  const s = clean(q.get('q'), 60).replace(/[%_]/g, '');
-  if (s) {
+  const search = clean(q.get('q'), 60).replace(/[%_]/g, '');
+  if (search) {
     where.push('(name LIKE ? OR phone LIKE ? OR ref LIKE ? OR message LIKE ? OR area LIKE ?)');
-    const like = `%${s}%`;
-    args.push(like, like, like, like, like);
+    args.push(...Array(5).fill(`%${search}%`));
   }
-  const sql = `SELECT * FROM appointments ${where.length ? 'WHERE ' + where.join(' AND ') : ''} ORDER BY id DESC LIMIT 1000`;
-  return (await db.prepare(sql).all(...args)).map((r) => ({ ...r }));
+  if (q.get('undated') === '1') where.push("preferred_date = ''");
+  else if (q.has('date')) {
+    const date=q.get('date'), parsed=new Date(date+'T00:00:00Z');
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || isNaN(parsed) || parsed.toISOString().slice(0,10)!==date) throw Object.assign(new Error('Invalid date'),{status:400});
+    where.push('preferred_date = ?'); args.push(date);
+  } else if (q.has('month')) {
+    const month=q.get('month');
+    if (!/^(19|20|21)\d{2}-(0[1-9]|1[0-2])$/.test(month)) throw Object.assign(new Error('Invalid month'),{status:400});
+    const next=new Date(month+'-01T00:00:00Z');next.setUTCMonth(next.getUTCMonth()+1);
+    where.push('preferred_date >= ? AND preferred_date < ?'); args.push(month+'-01',next.toISOString().slice(0,10));
+  }
+  return {sql:where.length?'WHERE '+where.join(' AND '):'',args};
 }
+async function queryRows(q, countOnly=false) {
+  const filter=appointmentFilter(q);
+  if(countOnly)return Number((await db.prepare(`SELECT COUNT(*) AS count FROM appointments ${filter.sql}`).get(...filter.args)).count);
+  return (await db.prepare(`SELECT * FROM appointments ${filter.sql} ORDER BY id DESC LIMIT 1000`).all(...filter.args)).map(row=>({...row}));
+}
+async function calendarSummary(q) {
+  if(!q.has('month'))throw Object.assign(new Error('A calendar month is required'),{status:400});
+  const scoped=new URLSearchParams(q);scoped.delete('date');scoped.delete('undated');
+  const filter=appointmentFilter(scoped);
+  const days=await db.prepare(`SELECT preferred_date AS date, status, COUNT(*) AS count FROM appointments ${filter.sql} GROUP BY preferred_date,status ORDER BY preferred_date`).all(...filter.args);
+  scoped.delete('month');scoped.set('undated','1');
+  return {days:days.map(day=>({...day,count:Number(day.count)})),undatedCount:await queryRows(scoped,true)};
+}
+
 function csv(rows) {
   const cols = ['ref', 'created_at', 'name', 'phone', 'area', 'preferred_date', 'status', 'message', 'note', 'lang'];
   const esc = (v) => {
@@ -285,10 +308,11 @@ async function route(req, res) {
       if (await handleContent(req,res,url)) return;
 
       if (m === 'GET' && p === '/api/admin/me') return send(res, 200, { ok: true });
+      if (m === 'GET' && p === '/api/admin/calendar') return send(res,200,await calendarSummary(url.searchParams));
       if (m === 'GET' && p === '/api/admin/appointments') {
         const counts = Object.fromEntries(STATUSES.map((s) => [s, 0]));
         for (const r of await db.prepare('SELECT status, COUNT(*) c FROM appointments GROUP BY status').all()) counts[r.status] = Number(r.c);
-        return send(res, 200, { rows: await queryRows(url.searchParams), counts });
+        return send(res, 200, { rows: await queryRows(url.searchParams), matchingCount: await queryRows(url.searchParams,true), counts });
       }
       if (m === 'GET' && p === '/api/admin/export.csv') {
         return send(res, 200, csv(await queryRows(url.searchParams)), { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': 'attachment; filename="appointments.csv"' });

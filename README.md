@@ -119,3 +119,9 @@ npm run test:libsql
 After deployment verify `/healthz`, admin sign-in, saving a draft, publishing a trivia entry, uploading an image and withdrawing the entry. A draft-only image must return 404 in a signed-out browser. A publish/unpublish change should be visible across deployments because all instances use the same remote database. Never use real patient information for smoke tests.
 
 Reference documentation: [SQLite on Vercel](https://vercel.com/kb/guide/is-sqlite-supported-in-vercel), [private Blob storage](https://vercel.com/docs/vercel-blob/private-storage), [function limits](https://vercel.com/docs/functions/limitations), [Turso JavaScript SDK](https://docs.turso.tech/sdk/ts/reference).
+
+## Appointment calendar
+
+The appointment dashboard opens in Calendar view. Navigate by month, use Today (Asia/Dhaka), or select a day to manage its requests. Status and search filters apply to calendar totals and the day details. Without a date shows requests that need scheduling. List returns to the original all-date list. Dates are patient preferences, not confirmed time slots; no consultation times are inferred. CSV exports respect the current date/undated/status/search selection.
+
+`GET /api/admin/calendar?month=YYYY-MM` returns daily totals by status and an undated count, with optional `status` and `q` filters. Appointment listing accepts `date=YYYY-MM-DD`, `month=YYYY-MM`, or `undated=1` and reports `matchingCount`. Calendar totals cover all matching records; detail lists retain the existing 1,000-row cap with an explicit notice when exceeded.

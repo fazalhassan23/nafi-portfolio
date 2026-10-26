@@ -26,6 +26,11 @@ child.stdout.on('data',async data=>{
   await api('/api/admin/content',{kind:'anatomy',category:'ear',title:'Interface test diagram',title_bn:'ইন্টারফেস পরীক্ষার ছবি',body:'Synthetic test content. This is not an anatomical illustration or medical advice.',image_id:media.id,status:'published',hotspots:[{x:50,y:50,label:'Test center',description:'The center of the test circle.',pathology:'Test pathology field.',symptoms:'Test symptom field.'},{x:20,y:30,label:'Test background',description:'The empty area of the test diagram.'}]});
   await api('/api/admin/content',{kind:'trivia',category:'nose',title:'Interface test trivia',body:'Can the answer be revealed?',answer:'Yes. The answer control is working.',status:'published',hotspots:[]});
   await api('/api/admin/content',{kind:'clinical',category:'throat',title:'Interface test clinical gate',body:'Synthetic test image to verify the opt-in control.',image_id:media.id,status:'published',consent_confirmed:true,hotspots:[]});
+  const calendar=require('../public/appointment-calendar'),today=calendar.today();
+  const upcoming=new Date(today+'T00:00:00Z');upcoming.setUTCDate(upcoming.getUTCDate()+2);
+  for(const [name,date] of [['Calendar Demo A',today],['Calendar Demo B',today],['Calendar Demo C',upcoming.toISOString().slice(0,10)],['Calendar Demo Undated','']]){
+    await api('/api/appointments',{name,phone:'01712345678',area:'Synthetic calendar test',date});
+  }
   console.log('Isolated browser fixture ready. Test image: '+path.join(directory,'test-diagram.png'));
  }catch(error){console.error(error);child.kill();}
 });

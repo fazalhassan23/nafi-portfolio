@@ -42,6 +42,9 @@ input,select,textarea{border:1px solid var(--line);background:var(--card);paddin
 .empty{text-align:center;color:var(--muted);padding:40px 10px}
 [hidden]{display:none!important}
 </style>
+<link rel="stylesheet" href="admin-calendar.css">
+<script src="appointment-calendar.js" defer></script>
+<script src="admin.js" defer></script>
 </head>
 <body>
 <div id="login" hidden>
@@ -66,81 +69,18 @@ input,select,textarea{border:1px solid var(--line);background:var(--card);paddin
   <div class="tools">
     <input id="q" type="search" placeholder="Search name, phone, reference or message" aria-label="Search">
   </div>
+  <div class="calendar-toolbar"><div class="view-switch" role="group" aria-label="Appointment view"><button id="view-calendar" aria-pressed="true">Calendar</button><button id="view-list" aria-pressed="false">List</button></div><button id="undated" class="calendar-undated" aria-pressed="false">Without a date</button></div>
+  <p class="calendar-status" id="load-status" role="status" aria-live="polite"></p>
+  <p class="calendar-warning" id="limit-warning" hidden></p>
+  <section id="calendar-view" aria-label="Appointment calendar">
+    <div class="calendar-controls"><button id="previous-month" aria-label="Previous month">←</button><h2 id="calendar-month" aria-live="polite"></h2><button id="next-month" aria-label="Next month">→</button><button id="calendar-today">Today</button><label class="calendar-month-input" for="month-picker">Go to month <input id="month-picker" type="month" min="1900-01" max="2199-12"></label></div>
+    <p class="calendar-note">Patient-preferred visit dates, not confirmed time slots. Today follows Asia/Dhaka time.</p>
+    <div class="calendar-shell"><table class="calendar-table"><caption class="calendar-note" id="calendar-caption">Choose a date to view and manage its requests below.</caption><thead><tr><th scope="col">Mon</th><th scope="col">Tue</th><th scope="col">Wed</th><th scope="col">Thu</th><th scope="col">Fri</th><th scope="col">Sat</th><th scope="col">Sun</th></tr></thead><tbody id="calendar-days"></tbody></table><div class="calendar-legend" aria-label="Appointment status legend"><span><i class="calendar-dot new" aria-hidden="true"></i>New</span><span><i class="calendar-dot confirmed" aria-hidden="true"></i>Confirmed</span><span><i class="calendar-dot completed" aria-hidden="true"></i>Completed</span><span><i class="calendar-dot cancelled" aria-hidden="true"></i>Cancelled</span></div></div>
+  </section>
+  <div class="calendar-detail-heading"><div><h2 id="detail-title">Appointment requests</h2><p id="detail-note"></p></div></div>
   <div class="list" id="list"></div>
 </div>
 
-<script>
-(function(){
-  var STATUSES=['new','confirmed','completed','cancelled'];
-  var state={status:'',q:'',counts:{}};
-  var $=function(id){return document.getElementById(id)};
-  function api(path,opts){
-    opts=opts||{};opts.credentials='same-origin';
-    if(opts.body&&typeof opts.body!=='string'){opts.body=JSON.stringify(opts.body);opts.headers={'Content-Type':'application/json'}}
-    return fetch(path,opts).then(function(r){return r.json().catch(function(){return{}}).then(function(d){if(!r.ok){var e=new Error(d.error||'Error');e.status=r.status;throw e}return d})});
-  }
-  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
-  function show(loggedIn){$('login').hidden=loggedIn;$('app').hidden=!loggedIn;if(loggedIn)load();else $('pw').focus()}
 
-  $('go').onclick=function(){
-    $('lerr').textContent='';
-    api('/api/admin/login',{method:'POST',body:{password:$('pw').value}}).then(function(){$('pw').value='';show(true)}).catch(function(e){$('lerr').textContent=e.message});
-  };
-  $('pw').onkeydown=function(e){if(e.key==='Enter')$('go').click()};
-  $('out').onclick=function(){api('/api/admin/logout',{method:'POST'}).then(function(){show(false)})};
-  $('csv').onclick=function(){location.href='/api/admin/export.csv?'+qs()};
-  var t;$('q').oninput=function(){clearTimeout(t);t=setTimeout(function(){state.q=$('q').value;load()},250)};
-  function qs(){var p=new URLSearchParams();if(state.status)p.set('status',state.status);if(state.q)p.set('q',state.q);return p.toString()}
-
-  function renderTabs(){
-    var box=$('tabs');box.textContent='';
-    [''].concat(STATUSES).forEach(function(s){
-      var n=s===''?STATUSES.reduce(function(a,k){return a+(state.counts[k]||0)},0):(state.counts[s]||0);
-      var b=el('button',null,(s||'all')+' ('+n+')');b.style.textTransform='capitalize';
-      b.setAttribute('aria-pressed',String(state.status===s));
-      b.onclick=function(){state.status=s;load()};box.appendChild(b);
-    });
-  }
-  function fmt(iso){var d=new Date(iso);return isNaN(d)?iso:d.toLocaleString([], {dateStyle:'medium',timeStyle:'short'})}
-  function render(rows){
-    var list=$('list');list.textContent='';
-    if(!rows.length){list.appendChild(el('div','empty','No appointment requests here yet.'));return}
-    rows.forEach(function(r){
-      var c=el('article','item');
-      var top=el('div','top');top.appendChild(el('b',null,r.name));
-      var right=el('span');right.appendChild(el('span','pill '+r.status,r.status));top.appendChild(right);c.appendChild(top);
-      var meta=el('div','meta');
-      var a=el('a',null,r.phone);a.href='tel:'+r.phone;meta.appendChild(a);
-      var cleanDigits = r.phone.replace(/[^\d]/g, '');
-      if (cleanDigits) {
-        var wa=el('a',null,'WhatsApp');
-        wa.href='https://wa.me/'+(cleanDigits.length===11&&cleanDigits.startsWith('01')?'88'+cleanDigits:cleanDigits);
-        wa.target='_blank';wa.rel='noopener noreferrer';wa.style.color='#128c7e';wa.style.fontWeight='600';
-        meta.appendChild(wa);
-      }
-      if(r.lang)meta.appendChild(el('span',null,r.lang==='bn'?'[বাংলা]':'[EN]'));
-      if(r.area)meta.appendChild(el('span',null,r.area));
-      if(r.preferred_date)meta.appendChild(el('span',null,'Preferred: '+r.preferred_date));
-      meta.appendChild(el('span','ref',r.ref+' · '+fmt(r.created_at)));
-      c.appendChild(meta);
-      if(r.message)c.appendChild(el('div','msg',r.message));
-      var act=el('div','act');
-      var sel=el('select');sel.setAttribute('aria-label','Status');
-      STATUSES.forEach(function(s){var o=el('option',null,s);o.value=s;o.style.textTransform='capitalize';if(s===r.status)o.selected=true;sel.appendChild(o)});
-      var note=el('textarea');note.placeholder='Private note';note.value=r.note||'';note.setAttribute('aria-label','Private note');
-      var save=el('button','primary','Save');
-      save.onclick=function(){save.disabled=true;api('/api/admin/appointments/'+r.id,{method:'PATCH',body:{status:sel.value,note:note.value}}).then(load).catch(fail).then(function(){save.disabled=false})};
-      var del=el('button','danger','Delete');
-      del.onclick=function(){if(del.dataset.sure){api('/api/admin/appointments/'+r.id,{method:'DELETE'}).then(load).catch(fail)}else{del.dataset.sure='1';del.textContent='Confirm delete';setTimeout(function(){delete del.dataset.sure;del.textContent='Delete'},3000)}};
-      act.appendChild(sel);act.appendChild(note);act.appendChild(save);act.appendChild(del);c.appendChild(act);
-      list.appendChild(c);
-    });
-  }
-  function fail(e){if(e.status===401)show(false);else alert2(e.message)}
-  function alert2(m){var l=$('list');var d=el('div','empty',m);l.prepend(d);setTimeout(function(){d.remove()},4000)}
-  function load(){api('/api/admin/appointments?'+qs()).then(function(d){state.counts=d.counts;renderTabs();render(d.rows)}).catch(fail)}
-  api('/api/admin/me').then(function(){show(true)}).catch(function(){show(false)});
-})();
-</script>
 </body>
 </html>

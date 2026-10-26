@@ -27,6 +27,7 @@ test('content lifecycle, media privacy, session revocation and appointment regre
  await t.test('public endpoints exclude private content and admin requires sign-in',async()=>{
   assert.equal((await request('/healthz')).status,200);
   assert.equal((await request('/api/admin/content')).status,401);
+  assert.equal((await request('/api/admin/calendar?month=2092-02')).status,401);
   assert.equal((await request('/api/admin/media',{method:'POST',body:{data:png,alt:'Test diagram'}})).status,401);
   assert.deepEqual((await request('/api/content')).data.items,[]);
  });
@@ -83,6 +84,18 @@ test('content lifecycle, media privacy, session revocation and appointment regre
   assert.match((await request('/api/admin/export.csv',{auth:true})).data,/Integration Test/);
   assert.equal((await request('/api/appointments',{method:'POST',body:{name:'',phone:'bad'}})).status,400);
   for (const date of ['2028-02-30','2020-01-01']) assert.equal((await request('/api/appointments',{method:'POST',body:{name:'Test Person',phone:'01712345678',date}})).status,400);
+ });
+ await t.test('calendar summary and day filters distinguish months, statuses and undated requests',async()=>{
+  for(const [name,date] of [['Calendar First','2092-02-01'],['Calendar Leap','2092-02-29'],['Calendar Next','2092-03-01'],['Calendar Undated','']]) {
+   assert.equal((await request('/api/appointments',{method:'POST',body:{name,phone:'01712345678',date}})).status,201);
+  }
+  const day=await request('/api/admin/appointments?date=2092-02-29',{auth:true});assert.equal(day.data.matchingCount,1);assert.equal(day.data.rows[0].name,'Calendar Leap');
+  await request('/api/admin/appointments/'+day.data.rows[0].id,{method:'PATCH',auth:true,body:{status:'confirmed'}});
+  const summary=await request('/api/admin/calendar?month=2092-02&q=Calendar',{auth:true});assert.equal(summary.status,200);assert.equal(summary.data.days.length,2);assert.equal(summary.data.undatedCount,1);assert.deepEqual(summary.data.days.map(day=>day.date),['2092-02-01','2092-02-29']);
+  const confirmed=await request('/api/admin/calendar?month=2092-02&status=confirmed&q=Calendar',{auth:true});assert.deepEqual(confirmed.data.days,[{date:'2092-02-29',status:'confirmed',count:1}]);assert.equal(confirmed.data.undatedCount,0);
+  const month=await request('/api/admin/appointments?month=2092-02&q=Calendar',{auth:true});assert.equal(month.data.rows.length,2);assert.equal(month.data.matchingCount,2);
+  const undated=await request('/api/admin/appointments?undated=1&q=Calendar',{auth:true});assert.equal(undated.data.matchingCount,1);assert.equal(undated.data.rows[0].name,'Calendar Undated');
+  assert.equal((await request('/api/admin/calendar?month=2092-13',{auth:true})).status,400);assert.equal((await request('/api/admin/calendar',{auth:true})).status,400);assert.equal((await request('/api/admin/appointments?date=2092-02-30',{auth:true})).status,400);
  });
  await t.test('logout revokes the existing session, including replayed cookies',async()=>{
   assert.equal((await request('/api/admin/logout',{method:'POST',auth:true})).status,200);
